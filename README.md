@@ -5,8 +5,7 @@ Course Name: Fundamental Technology Entrepreneurship
 Instructor: Dr. Herison Surbakti
 Project Type: 14-Labs Continuous IT Startup MVP Development
 ## Team Name
-
-4
+Icecream
 
 ## Team Members and Roles
 | Name | Role | Responsibility |
@@ -15,11 +14,11 @@ Project Type: 14-Labs Continuous IT Startup MVP Development
 | 6609861 | Kyaw Naing Soe  | Technical Lead + Validation Lead | Manage prototype and repository |
 | 6703808 | RunluQing | UX/UI Lead| Design interface  |
 ## Initial Problem Area
-Briefly describe the general problem area your team is interested in.
+ Visitors want to share how they got to the attractions and what their experience was like.
 ## Target Users
-Describe the possible user group affected by the problem.
+ Tourists who have no idea and information for their trip. 
 ## Initial IT Venture Direction
-Briefly describe the possible IT solution direction.
+a Web2 website or a mobile app.
 ## Technology Possibility
 Possible technologies:
 - Web application
@@ -28,16 +27,14 @@ Possible technologies:
 - AI-assisted feature
 - Cloud-based system
 - IoT-supported system
-- Cybersecurity tool
 - SaaS platform
-- Marketplace or digital platform
 ## Repository Structure
 Explain the purpose of each folder.
 ## Weekly Progress Log
 | Week | Main Activity | Output | Status |
 |---|---|---|---|
-| Lab 1 | Lab setup and idea log | Repository, team profile, initial idea log | In progress |
+| Lab 1 | Lab setup and idea log | Repository, team profile, initial idea log | Complete |
 ## Current Status
-Write 3-5 sentences about what the team has completed in Lab 1.
+Created the Github Repository and Exchange ideas with each other.
 ## Next Step
-Write what the team will do in Lab 2.
+To decide which idea we are going to continue.

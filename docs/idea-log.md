@@ -3,7 +3,7 @@
 ### Problem Area
  Visitors want to share how they got to the attractions and what their experience was like.
 ### Target Users
- Tourists who have no idea and information to plan their trip. 
+ Tourists who have no idea and information for their trip. 
 ### Current Alternative
  They ask their friend or visit to Tourism authorities offical website of the country for information. 
 ### Proposed IT Solution
