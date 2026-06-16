@@ -11,6 +11,9 @@ Project Type: 14-Labs Continuous IT Startup MVP Development
 ## Team Members and Roles
 | Name | Role | Responsibility |
 |---|---|---|
+| 6708425 | Gwyndolin | Product Lead + Documentation Lead | Define problem, target users and maintain documents |
+| 6609861 | Kyaw Naing Soe  | Technical Lead + Validation Lead | Manage prototype and repository |
+| 6703808 | RunluQing | UX/UI Lead| Design interface  |
 ## Initial Problem Area
 Briefly describe the general problem area your team is interested in.
 ## Target Users
