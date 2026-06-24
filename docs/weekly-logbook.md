@@ -43,3 +43,22 @@ Explain the decision using NUF scoring. We seleted idea 5. It is suitable for ar
 - Commit link:
 ### Plan for Lab 03
 Write how the team will conduct customer problem discovery.
+
+## Lab 3: Collect user responses and analyse them.
+### What We Completed
+1. discussed what should be included in the survey.
+2. Collect Customer's responses and created an Assumption-Evidence Table
+3. Analyse user's responses
+### What We Learned
+1. How to create a survey.
+2. Discorver insights from Customer's responses.
+
+### Problems or Difficulties
+1. Analyze the customer's true thoughts.
+### Evidence of Work
+- GitHub repository link: https://github.com/Sakame2806/ICT111-IceCream-MVP
+- Raw response table: 
+### Decision Made This Week
+We decided to continue our project using current ideas.
+### Plan for Next Week
+Create the flowchart and prototype of our project.

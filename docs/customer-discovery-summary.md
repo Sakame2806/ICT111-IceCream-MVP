@@ -1,10 +1,10 @@
 # Customer Discovery Summary
 
 ## Project Title
-Pixic: Campus Digital Art Community Platform
+IceCream: Campus Digital Art Community Platform
 
 ## Target Users Studied
-Digital Visual Artists (Student Illustrators, Designers) and Art Hobbyists on campus.
+Digital Visual Artists (Student Illustrators, Designers) and Art Hobbyists.
 
 ## Number of Responses / Interviews
 10 Interviews (5 student artists, 3 hobbyists, and 2 art club leaders)
@@ -14,7 +14,7 @@ Student artists lack a dedicated, organized campus platform to showcase their wo
 
 ## Main Current Workarounds
 - Ad-hoc Telegram/Line groups: Fast messaging but unstructured feeds where art posts are instantly buried.
-- Personal Instagram/X accounts: Wide reach but heavily algorithm-dependent, offering little campus connection and mostly superficial engagement (likes/emojis).
+- Personal Instagram/X accounts: Wide reach but heavily algorithm-dependent, offering little local connection and mostly superficial engagement (likes/emojis).
 - Google Drive folder links: Organizes portfolios but has zero social features, leading to no feedback or community discussions.
 
 ## Strongest Evidence Found
@@ -36,4 +36,4 @@ Choose one:
 - [ ] Change the project direction
 
 ## Updated Problem Statement
-Digital visual artists on campus struggle to gain local visibility, organize their work, and receive constructive feedback because current communication channels (Telegram, Instagram) bury their art in chaotic feeds and lack specialized features for hosting and tagging portfolios.
+Digital visual artists in Thailand struggle to gain local visibility, organize their work, and receive constructive feedback because current communication channels (Telegram, Instagram) bury their art in chaotic feeds and lack specialized features for hosting and tagging portfolios.
