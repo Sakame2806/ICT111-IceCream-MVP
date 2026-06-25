@@ -62,3 +62,43 @@ Write how the team will conduct customer problem discovery.
 We decided to continue our project using current ideas.
 ### Plan for Next Week
 Create the flowchart and prototype of our project.
+
+## Lab 04: User Persona, Requirements, and User Stories
+
+### Primary Target User
+Digital visual artists (student illustrators, designers) and art hobbyists in Thailand who want to share their artwork, receive constructive feedback, and find style/fandom-specific groups without their posts getting lost in unstructured chat feeds.
+
+### Persona Summary
+- Persona name:
+- User type:
+- Main goal:
+- Main pain point:
+- Current workaround:
+
+### Key Requirements
+| Req ID | Requirement | Priority | Related Evidence |
+|---|---|---|---|
+| FR-01 | Dedicated landing page showcasing featured student art and clear CTA to join | Must | 10/10 respondents need a dedicated campus community space |
+| FR-03 | Artwork upload form (with single/multi-page options for comics) and structured critique form | Must | Respondents 1, 2, 3, 5, 10 demand structured feedback (anatomy, coloring) and comic layouts |
+| FR-06 | Style, fandom, and critique focus filters (Anime, Comic, Touhou, VTuber, Needs Anatomy Critique) | Must | Respondents 3, 8 requested search/filtering by fandom/style to prevent fragmentation |
+| FR-10 | Input validations (required upload fields, min word count for critiques) to prevent emoji/sticker-only spam | Must | Respondents 1, 2, 6, 10 highlight the lack of constructive critique and prevalence of empty reactions |
+| NFR-01 | Responsive user interface design supporting seamless mobile and desktop web browsing | Must | Student preference for web-based portfolio setup and high-resolution mobile browsing |
+
+### MVP Feature Scope
+| Feature | Priority | Included in Final Prototype? |
+|---|---|---|
+| F01: Landing & Navigation Portal | Must | Yes |
+| F02: Multi-page Upload & Critique Spec Form | Must | Yes |
+| F03: Style & Fandom Categorized Feed | Must | Yes |
+| F04: Structured Critique Engine | Must | Yes |
+| F05: Creator Analytics & Critique Karma | Should | Yes |
+| F06: Moderator Admin Dashboard | Should | Yes |
+| F07: Collaborative Contests & Fandom Events | Could | No |
+| F08: Commission Matching System | Won't | No |
+
+### Diagram Links
+- User flow diagram:
+- Use case diagram:
+
+### GitHub Contribution Evidence
+All members contributed to this repository through commits, issues, or pull requests.
