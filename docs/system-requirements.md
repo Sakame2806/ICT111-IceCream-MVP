@@ -1,42 +1,34 @@
-# System Requirements
+# System Requirements - IceCream: Campus Digital Art Community Platform
 
 ## Minimum Final Prototype Functionalities
 
-These requirements define the minimum prototype functionalities that each ICT105 student group must address in the final prototype. The requirements are designed to be platform-independent and can align with different project topics, such as booking systems, reporting systems, inventory systems, learning platforms, dashboards, marketplace concepts, reminder systems, service request systems, or other IT-based solutions.
+These requirements define the minimum prototype functionalities for the **IceCream** final prototype, specifically tailored to address the insights gathered from our customer discovery surveys of 10 student/hobbyist artists. The system focuses on structured critique culture, multi-page comic viewing, and fandom-based discovery to prevent artwork from being buried.
 
-| Req ID | Minimum Prototype Functionality | What Students Must Show in Final Prototype |
+| Req ID | Minimum Prototype Functionality | What is Shown in the Final Prototype for IceCream |
 | --- | --- | --- |
-| **FR-01** | **Clear problem-specific homepage or landing screen** | The prototype must clearly show the project title, target user, problem being solved, and main action the user can take. |
-| **FR-02** | **Primary user pathway** | The prototype must show how the main user moves through the system from start to finish. Example: open system → submit request → check status → receive result. |
-| **FR-03** | **User input or data submission feature** | The system must allow users to submit information related to the selected case. Example: report item, book appointment, register event, submit complaint, add inventory, request service. |
-| **FR-04** | **Data storage or record management** | Submitted data must be stored, displayed, or simulated through a database, spreadsheet, local storage, JSON file, Airtable, Firebase, Google Sheet, or another suitable tool. |
-| **FR-05** | **View records / information list** | The prototype must allow users or admins to view existing records. Example: list of reports, bookings, products, requests, tasks, items, users, or service cases. |
-| **FR-06** | **Search, filter, or category function** | The prototype must include a way to find relevant information. Example: search by keyword, filter by status, category, date, location, type, priority, or user group. |
-| **FR-07** | **Detail view for each record** | Users must be able to open or view more details about a selected item, request, booking, report, product, or case. |
-| **FR-08** | **Status or progress tracking** | The system must show the status of a record. Example: pending, approved, rejected, completed, claimed, available, in progress, resolved, or closed. |
-| **FR-09** | **Admin or manager function** | The prototype must include at least one admin/manager-side function. Example: update status, approve request, edit record, delete invalid record, assign task, or manage submitted data. |
-| **FR-10** | **Basic validation and error prevention** | The system must prevent incomplete or incorrect input. Example: required fields, valid email format, date selection, duplicate warning, confirmation message, or simple error message. |
-| **FR-11** | **Confirmation or feedback message** | After a user submits or updates data, the prototype must show feedback. Example: “Submission successful,” “Request received,” “Status updated,” or “Please complete required fields.” |
-| **FR-12** | **Dashboard, summary, or simple analytics view** | The prototype must include at least one summary screen. Example: total reports, pending requests, number of users, most common category, monthly submissions, inventory summary, or task status overview. |
-| **FR-13** | **Basic user interface consistency** | Screens must use consistent layout, navigation, labels, buttons, and visual structure. The prototype should look like one complete system, not disconnected pages. |
-| **FR-14** | **Mobile-friendly or responsive design consideration** | The prototype must show that the interface can reasonably work on a laptop or mobile screen, depending on the selected platform. |
-| **FR-15** | **Basic privacy and responsible data handling** | Students must avoid unnecessary sensitive data. If user data is collected, the prototype must show basic privacy awareness, such as limited fields, masked sample data, or clear data-use explanation. |
-| **FR-16** | **Final prototype traceability** | Every major prototype screen or feature must connect back to the Lab 04 requirements, user stories, and MVP feature list. Students must be able to explain why each feature exists. |
+| **FR-01** | **Clear problem-specific homepage or landing screen** | A dedicated landing page featuring the project title (**IceCream**), target user statement (Campus Digital Artists & Hobbyists), the primary problems solved (chaotic chat feeds, lack of constructive critique), and clear Call-To-Action (CTA) buttons to "Browse Galleries" or "Upload Portfolio". |
+| **FR-02** | **Primary user pathway** | Artist logs in → Uploads artwork/comics with specific critique preferences (e.g., Anatomy, Coloring) → Artwork is categorized under style/fandom filters → Peers find the work and submit structured critique → Artist views critiques and tracks community feedback. |
+| **FR-03** | **User input or data submission feature** | 1. **Artwork/Comic Upload Form**: Fields for Title, Description, single/multi-page image upload (for comics or character design sheets), style tags (Anime, Manga/Comic, Concept Art), fandom tags (Touhou, VTuber, Original), and "Critique Focus" checkboxes.<br>2. **Structured Critique Form**: Submission form under artworks with criteria dropdowns (Anatomy, Coloring/Lighting, Storytelling, Composition) and text feedback. |
+| **FR-04** | **Data storage or record management** | Artworks (metadata, image URLs, tags, category) and structured critiques stored, queried, and updated dynamically using **Firebase Firestore** or simulated local storage. |
+| **FR-05** | **View records / information list** | A **Gallery Grid** feed showcasing illustrations, character design sheets, and multi-page comics. Includes badges showing what type of critique the artist is seeking. |
+| **FR-06** | **Search, filter, or category function** | A search bar for titles, tags, and creator aliases. Filtering system by **style** (Anime, Comic/Manga, Concept Art, UI/UX), **fandom** (Touhou, VTuber, Original), and **critique status** (e.g., "Needs Anatomy Feedback"). |
+| **FR-07** | **Detail view for each record** | An **Artwork/Comic Detail Page** featuring a multi-page reader layout for comic sheets, high-resolution zoom, artist bio, selected critique checkboxes, and a dedicated, organized critique feed. |
+| **FR-08** | **Status or progress tracking** | A visual status badge on each post indicating the creator's critique needs: **"Seeking Anatomy Critique"**, **"Seeking Coloring & Lighting Critique"**, **"Seeking Storytelling Feedback"**, or **"Showcase Only"**. |
+| **FR-09** | **Admin or manager function** | An **Art Club Moderator Dashboard** to review reported entries, delete off-topic/offensive comments, or pin high-quality educational critiques to the top of posts. |
+| **FR-10** | **Basic validation and error prevention** | Form validations: enforcing required fields (Title, Image, style tag), file type restrictions, and a minimum character limit (e.g., 20 characters) for critiques to prevent empty emoji-only comments or sticker-only replies. |
+| **FR-11** | **Confirmation or feedback message** | Dynamic toast notifications confirming actions: *"Artwork uploaded successfully!"*, *"Critique posted successfully!"*, or *"Post flagged for moderation review."* |
+| **FR-12** | **Dashboard, summary, or simple analytics view** | A **Creator Dashboard** showing total views/likes and a breakdown of critiques received by category (Anatomy vs Coloring). Includes a **"Critique Karma"** metric to reward artists for reviewing others' work. |
+| **FR-13** | **Basic user interface consistency** | Navigation header (Logo, Search, Upload, Profile), unified buttons, consistent typography, and a modern, pastel "ice-cream" inspired color palette. |
+| **FR-14** | **Mobile-friendly or responsive design consideration** | Responsive CSS layout where the artwork grid adapts to 1, 2, or 3 columns depending on device width, and a responsive comic reader layout. |
+| **FR-15** | **Basic privacy and responsible data handling** | Profile accounts using student aliases/usernames rather than real names or student IDs, masked contact information, and clear disclaimers that uploaded files are for educational exhibition only. |
+| **FR-16** | **Final prototype traceability** | A clean mapping where each screen elements (Upload modal, Gallery, Detail page, Moderator view) connects directly to Lab 04 User Stories (US-01 to US-05) and MVP Feature IDs. |
 
 ---
 
 ## Minimum Technical Requirement
 
-The final prototype must not be only a static idea or presentation. It must be an interactive prototype where users can click, submit, view, search/filter, update, or simulate the main workflow.
-
-Acceptable platforms may include:
+The final prototype is an interactive web-based community platform where campus users can register/login, upload files, write critique feedback, and search/filter art categories.
 
 | Platform Type | Acceptable Prototype Form |
 | --- | --- |
-| Web app | HTML/CSS/JavaScript, PHP/MySQL, React, Laravel, or similar |
-| Mobile app prototype | Figma clickable prototype, Flutter, React Native, MIT App Inventor, or similar |
-| Dashboard system | Power BI, Tableau, Google Looker Studio, Excel dashboard, or web dashboard |
-| Low-code/no-code system | Google Forms + Sheets, Airtable, Notion, Glide, AppSheet, Bubble, or similar |
-| Data-driven prototype | Spreadsheet/database-backed prototype with forms, views, filters, and dashboard |
-| UI/UX prototype | Figma prototype, but it must include realistic user flow, data screens, status screens, and interaction logic |
-
+| **Web app** | **Vue.js 3 / HTML / TailwindCSS / CSS Grid** with **Firebase Auth & Firestore** database for real-time storage and user sessions. |
