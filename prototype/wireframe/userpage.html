@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixiv Artwork Details - Replica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="sticky top-0 z-50 bg-white border-b border-gray-200 px-4 py-2.5 flex items-center justify-between shadow-sm">
+        <div class="flex items-center space-x-6 flex-1 max-w-4xl">
+            <a href="#" class="text-blue-600 font-black text-2xl tracking-wider flex items-center">
+                <span class="bg-blue-600 text-white px-1.5 py-0.5 rounded mr-1 text-sm font-bold">P</span>pixiv
+            </a>
+            
+            <div class="relative w-full max-w-xl hidden md:block">
+                <input type="text" placeholder="Illustrations, manga, novels or users" class="w-full bg-gray-100 border border-transparent focus:border-blue-500 focus:bg-white rounded-md pl-10 pr-4 py-2 text-sm transition-colors outline-none text-gray-700">
+                <div class="absolute left-3 top-2.5 text-gray-400">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center space-x-4">
+            <button class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-1.5 rounded-full transition-colors hidden sm:block">
+                <i class="fas fa-upload mr-1"></i> Submit
+            </button>
+            
+            <button class="text-gray-600 hover:text-blue-600 p-2 rounded-full hover:bg-gray-100 transition-colors relative">
+                <i class="far fa-comment-alt text-xl"></i>
+                <span class="absolute top-1 right-1 bg-red-500 w-2 h-2 rounded-full"></span>
+            </button>
+
+            <button class="text-gray-600 hover:text-blue-600 p-2 rounded-full hover:bg-gray-100 transition-colors">
+                <i class="far fa-bell text-xl"></i>
+            </button>
+
+            <button class="text-gray-600 hover:text-blue-600 p-2 rounded-full hover:bg-gray-100 transition-colors">
+                <i class="fas fa-th text-xl"></i>
+            </button>
+
+            <div class="w-8 h-8 rounded-full overflow-hidden border border-gray-200 cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="User Avatar" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 mt-4">
+        <div class="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg p-4 text-white flex items-center justify-between shadow-sm cursor-pointer">
+            <div class="flex items-center space-x-3">
+                <span class="bg-yellow-400 text-gray-900 text-xs px-2 py-0.5 rounded font-bold">PR</span>
+                <p class="text-sm font-medium">Pixiv Premium Limited Offer! Unlock advanced search features and high-res image downloads instantly.</p>
+            </div>
+            <i class="fas fa-chevron-right text-sm"></i>
+        </div>
+    </div>
+
+    <main class="max-w-7xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <div class="lg:col-span-2 space-y-4">
+            
+            <div class="bg-zinc-900 rounded-lg overflow-hidden flex items-center justify-center min-h-[500px] shadow-sm relative group">
+                <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1000&q=80" alt="Main Artwork" class="max-w-full max-h-[750px] object-contain">
+                
+                <div class="absolute bottom-3 left-3 bg-black/70 text-white text-xs px-3 py-1.5 rounded pointer-events-none backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                    Scenario: A green long-haired anime girl wearing a yellow and green dress, sitting in a wooden boat, surrounded by mysterious purple tentacles.
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg p-4 shadow-sm flex flex-wrap items-center justify-between gap-4">
+                <div class="flex items-center space-x-2">
+                    <button class="bg-red-50 hover:bg-red-100 text-red-500 font-medium px-4 py-2 rounded-full flex items-center space-x-1.5 transition-colors">
+                        <i class="fas fa-heart"></i>
+                        <span>Like (2.4k)</span>
+                    </button>
+                    <button class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium px-4 py-2 rounded-full flex items-center space-x-1.5 transition-colors">
+                        <i class="far fa-bookmark"></i>
+                        <span>Add Bookmark</span>
+                    </button>
+                </div>
+
+                <div class="flex items-center space-x-4 text-gray-500">
+                    <button class="hover:text-blue-500"><i class="fab fa-twitter text-xl"></i></button>
+                    <button class="hover:text-blue-600"><i class="fab fa-facebook text-xl"></i></button>
+                    <button class="hover:text-gray-800"><i class="fas fa-share-alt text-xl"></i></button>
+                    <button class="hover:text-gray-800"><i class="fas fa-ellipsis-h text-xl"></i></button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg p-4 shadow-sm space-y-3">
+                <div class="flex items-center space-x-2 text-gray-700 font-bold text-sm border-b border-gray-100 pb-2">
+                    <i class="fas fa-tags text-blue-500"></i>
+                    <span>Tags</span>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-1">
+                    <a href="#" class="bg-blue-50 hover:bg-blue-100 text-blue-600 text-xs px-3 py-1.5 rounded-md font-medium transition-colors">#original</a>
+                    <a href="#" class="bg-blue-50 hover:bg-blue-100 text-blue-600 text-xs px-3 py-1.5 rounded-md font-medium transition-colors">#anime_girl</a>
+                    <a href="#" class="bg-blue-50 hover:bg-blue-100 text-blue-600 text-xs px-3 py-1.5 rounded-md font-medium transition-colors">#fantasy</a>
+                    <a href="#" class="bg-blue-50 hover:bg-blue-100 text-blue-600 text-xs px-3 py-1.5 rounded-md font-medium transition-colors">#green_hair</a>
+                    <a href="#" class="bg-blue-50 hover:bg-blue-100 text-blue-600 text-xs px-3 py-1.5 rounded-md font-medium transition-colors">#tentacles</a>
+                    <button class="bg-gray-100 hover:bg-gray-200 text-gray-600 text-xs px-3 py-1.5 rounded-md font-medium transition-colors">
+                        <i class="fas fa-plus mr-1"></i>Add Tag
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg p-4 shadow-sm space-y-4">
+                <h3 class="font-bold text-gray-800 flex items-center"><i class="far fa-comment mr-2"></i> Comments (12)</h3>
+                <div class="flex space-x-3">
+                    <div class="w-9 h-9 rounded-full overflow-hidden flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1 relative">
+                        <input type="text" placeholder="Leave a constructive comment..." class="w-full bg-gray-100 border border-gray-200 rounded-lg px-4 py-2 pr-12 text-sm outline-none focus:border-blue-400 focus:bg-white transition-all">
+                        <button class="absolute right-3 top-2 text-blue-500 text-sm font-medium">Send</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="space-y-6">
+            
+            <div class="bg-white rounded-lg p-4 shadow-sm space-y-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-blue-100">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Artist Avatar" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h2 class="font-bold text-gray-800 text-lg hover:text-blue-600 cursor-pointer">Andy Love</h2>
+                            <p class="text-xs text-gray-400">User ID: 9481023</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="text-xs text-blue-500 hover:underline font-medium">View Gallery</a>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2">
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm py-2 rounded-md shadow-sm transition-colors">
+                        <i class="fas fa-user-plus mr-1"></i> Follow
+                    </button>
+                    <button class="border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium text-sm py-2 rounded-md transition-colors">
+                        <i class="far fa-envelope mr-1"></i> Message
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg p-4 shadow-sm space-y-3">
+                <h3 class="font-bold text-gray-800 text-sm flex justify-between items-center">
+                    <span>Recommended Works</span>
+                    <span class="text-xs text-gray-400 font-normal">Related Feed</span>
+                </h3>
+                
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="aspect-square bg-gray-100 rounded overflow-hidden cursor-pointer group relative">
+                        <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="aspect-square bg-gray-100 rounded overflow-hidden cursor-pointer group relative">
+                        <img src="https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="aspect-square bg-gray-100 rounded overflow-hidden cursor-pointer group relative">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="aspect-square bg-gray-100 rounded overflow-hidden cursor-pointer group relative">
+                        <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80" alt="Sidebar Ad" class="w-full h-32 object-cover cursor-pointer">
+                <div class="p-2 bg-gray-50 text-right">
+                    <span class="text-[10px] text-gray-400 border border-gray-300 px-1 rounded">Sponsored</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>

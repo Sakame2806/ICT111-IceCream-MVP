@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <style>
+        /* 页面整体布局 */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* 注册框样式 */
+        .signup-container {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 { text-align: center; margin-bottom: 24px; color: #333; }
+        .input-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 14px; color: #555; }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        /* 生日选择器样式 */
+        .dob-group { display: flex; gap: 10px; }
+        select {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: white;
+        }
+
+        /* 其他选项 */
+        .gender-options { display: flex; gap: 15px; margin-bottom: 20px; font-size: 14px; }
+        .checkbox-group { font-size: 13px; margin-bottom: 20px; color: #666; }
+
+        /* 注册按钮 */
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover { background-color: #0056b3; }
+
+        .footer-text { text-align: center; font-size: 12px; color: #aaa; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+<div class="signup-container">
+    <h2>Create Account with Google</h2>
+    
+    <div class="input-group">
+        <label>Nickname</label>
+        <input type="text" placeholder="Enter your username">
+    </div>
+
+    <div class="input-group">
+        <label>Gender</label>
+        <div class="gender-options">
+            <label><input type="radio" name="gender"> Male</label>
+            <label><input type="radio" name="gender"> Female</label>
+            <label><input type="radio" name="gender"> Other</label>
+        </div>
+    </div>
+
+    <div class="input-group">
+        <label>Date of Birth</label>
+        <div class="dob-group">
+            <select id="year"><option value="">Year</option></select>
+            <select id="month"><option value="">Month</option></select>
+            <select id="day"><option value="">Day</option></select>
+        </div>
+    </div>
+
+    <div class="checkbox-group">
+        <input type="checkbox" id="terms">
+        <label style="display:inline;" for="terms">I agree to the Terms and Privacy Policy</label>
+    </div>
+
+    <button>Sign Up</button>
+    <div class="footer-text">This site is protected by reCAPTCHA.</div>
+</div>
+
+<script>
+    // 初始化年月日联动功能
+    const yearSelect = document.getElementById('year');
+    const monthSelect = document.getElementById('month');
+    const daySelect = document.getElementById('day');
+
+    const currentYear = new Date().getFullYear();
+    
+    // 生成年份
+    for (let i = currentYear; i >= currentYear - 100; i--) {
+        let opt = document.createElement('option');
+        opt.value = i; opt.innerHTML = i;
+        yearSelect.appendChild(opt);
+    }
+
+    // 生成月份
+    for (let i = 1; i <= 12; i++) {
+        let opt = document.createElement('option');
+        opt.value = i; opt.innerHTML = i;
+        monthSelect.appendChild(opt);
+    }
+
+    // 联动逻辑：根据年月更新天数
+    function updateDays() {
+        const year = yearSelect.value;
+        const month = monthSelect.value;
+        daySelect.innerHTML = '<option value="">Day</option>';
+
+        if (year && month) {
+            const daysInMonth = new Date(year, month, 0).getDate();
+            for (let i = 1; i <= daysInMonth; i++) {
+                let opt = document.createElement('option');
+                opt.value = i; opt.innerHTML = i;
+                daySelect.appendChild(opt);
+            }
+        }
+    }
+
+    yearSelect.onchange = updateDays;
+    monthSelect.onchange = updateDays;
+</script>
+
+</body>
+</html>

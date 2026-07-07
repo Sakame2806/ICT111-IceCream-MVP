@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: sans-serif; background-color: #f0f0f0; margin: 0; padding: 0; }
+
+        /* Top Navigation Bar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo { color: #0096fa; font-weight: bold; font-size: 24px; margin-right: 20px; }
+        .search-box { background: #eee; padding: 8px 15px; border-radius: 20px; flex: 0 1 400px; display: flex; align-items: center; }
+        .nav-right { margin-left: auto; display: flex; align-items: center; gap: 15px; }
+        .btn-submit-nav { background: #0096fa; color: white; border: none; padding: 6px 15px; border-radius: 20px; cursor: pointer; }
+        .nav-icon { color: #555; cursor: pointer; }
+
+        /* Main Content */
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 4px; }
+        
+        /* Previous Styles */
+        .upload-box { border: 2px dashed #ccc; padding: 40px; text-align: center; margin-bottom: 20px; background: #fafafa; }
+        .btn-upload { background: #0096fa; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; }
+        .form-group { margin-bottom: 20px; display: flex; align-items: flex-start; }
+        .label { width: 140px; font-weight: bold; padding-top: 5px; }
+        .input-area { flex: 1; }
+        input[type="text"], textarea { width: 100%; padding: 8px; border: 1px solid #ccc; box-sizing: border-box; }
+        .radio-group { display: flex; gap: 15px; align-items: center; }
+        .footer-note { font-size: 12px; color: #666; border-top: 1px solid #eee; padding-top: 15px; }
+        .btn-submit { width: 100%; padding: 12px; background: #0096fa; color: white; border: none; border-radius: 4px; font-size: 16px; margin-top: 20px; cursor: pointer; }
+        .required::before { content: "*"; color: red; margin-right: 4px; }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">pixiv</div>
+    <div class="search-box">Search Illustrations/Manga...</div>
+    <div class="nav-right">
+        <span class="nav-icon">Premium</span>
+        <button class="btn-submit-nav">Submit</button>
+        <span class="nav-icon">✉</span>
+        <span class="nav-icon">🔔</span>
+        <div style="width: 30px; height: 30px; background: #ccc; border-radius: 50%;"></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="upload-box">
+        <button class="btn-upload">+ Add Image</button>
+        <p style="font-size: 12px; color: #888;">JPEG / GIF / PNG<br>Up to 32MB per file</p>
+    </div>
+
+    <div class="form-group">
+        <div class="label">Title</div>
+        <div class="input-area"><input type="text" placeholder="Enter title"></div>
+    </div>
+
+    <div class="form-group">
+        <div class="label">Caption</div>
+        <div class="input-area"><textarea rows="5" placeholder="Enter description"></textarea></div>
+    </div>
+
+    <div class="form-group">
+        <div class="label required">Tags</div>
+        <div class="input-area"><input type="text" placeholder="Enter tags, press enter to confirm"></div>
+    </div>
+
+    <div class="form-group">
+        <div class="label required">Age Limit</div>
+        <div class="radio-group">
+            <label><input type="radio" name="age"> All Ages</label>
+            <label><input type="radio" name="age"> R-18</label>
+            <label><input type="radio" name="age"> R-18G</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="label required">AI-generated</div>
+        <div class="radio-group">
+            <label><input type="radio" name="ai"> Yes</label>
+            <label><input type="radio" name="ai"> No</label>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>Please confirm the following before submitting:</p>
+        <ul>
+            <li>Works created by others, images of merchandise, or screenshots of games/videos.</li>
+            <li>Works that are not entirely original, or are appropriations of other images.</li>
+        </ul>
+        <button class="btn-submit">Submit</button>
+    </div>
+</div>
+
+</body>
+</html>
