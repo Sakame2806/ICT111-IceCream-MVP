@@ -30,9 +30,12 @@ Possible technologies:
 ## Repository Structure
 Explain the purpose of each folder.
 ## Weekly Progress Log
-| Week | Main Activity | Output | Status |
-|---|---|---|---|
+| Week | Main Activity | Output                                     | Status |
+|---|---|--------------------------------------------|---|
 | Lab 1 | Lab setup and idea log | Repository, team profile, initial idea log | Complete |
+| Lab 2 | Opportunity Scanning | NUF Scoring Forms, Selected ideas          | Complete |
+| Lab 3 | Collect user responses and analyse them | User Pain Points Survey and User Responses | Complete |
+| Lab 4 | Create User Persona | Decide which features are neccesary based on User Persona | Complete |  
 ## Current Status
  Created the Github Repository and Exchange ideas with each other.(Lab 1)
  We reviewed six possible IT opportunities, scored them using NUF, and selected idea 5 as our semester project idea.(lab 2)
