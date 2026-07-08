@@ -97,8 +97,45 @@ Digital visual artists (student illustrators, designers) and art hobbyists in Th
 | F08: Commission Matching System | Won't | No |
 
 ### Diagram Links
-- User flow diagram:
-- Use case diagram:
+- User flow diagram: [Icecream_flowchart.drawio.png](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/diagrams/Icecream_flowchart.drawio.png)
+- Use case diagram: [Use Case Diagrams.drawio.png](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/diagrams/Use%20Case%20Diagrams.drawio.png)
 
 ### GitHub Contribution Evidence
 All members contributed to this repository through commits, issues, or pull requests.
+
+## Lab 05: Product Concept, Wireframing, and Usability Review
+
+### What We Completed
+1. **Defined Product Concept**: Detailed the target audience (campus artists/hobbyists), problem statement, proposed solution (IceCream website with structured critique system), value proposition, and MVP scope vs. out-of-scope boundaries. (Recorded in [product-concept.md](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/docs/product-concept.md))
+2. **Mapped Features to Requirements**: Mapped planned MVP screens and features (Landing, Upload Form, Gallery Feed, Detail Page, dashboards) to functional requirements from `system-requirements.md` and user stories from `user-stories.md`. (Recorded in [feature-requirement-mapping.md](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/docs/feature-requirement-mapping.md))
+3. **Designed Minimum Required Screens**: Designed layout structures for the core screens (Landing Page, Upload/Submission Form, Detail View, and authentication screens) to support Pixiv-inspired/IceCream mockups. (Detailed in [wireframe-specification.md](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/docs/wireframe-specification.md))
+4. **Created User Flow**: Mapped out the user journey (Landing -> Registration/Login -> Browse/Filter Gallery -> View Detail -> Post Artwork -> Structured Critique/Comment) to verify seamless navigation.
+5. **Built Clickable HTML Draft**: Developed HTML/CSS mockups in `prototype/wireframe/` representing actual interface states with realistic sample content:
+   - Landing & Gallery Detail Feed: [userpage.html](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/prototype/wireframe/userpage.html)
+   - Artwork Upload Form: [input.html](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/prototype/wireframe/input.html)
+   - Sign Up Screen: [sign.html](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/prototype/wireframe/sign.html)
+   - Login Screen: [login.html](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/prototype/wireframe/login.html)
+6. **Reviewed Usability Coverage**: Evaluated the wireframe pages against a usability checklist covering navigation, content clarity, form styling, accessibility, and mobile/responsive designs. (Recorded in [wireframe-usability-checklist.md](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/docs/wireframe-usability-checklist.md))
+
+### What We Learned
+1. Translating customer pain points into a clear and scoped product concept definition.
+2. Building responsive HTML/CSS layouts that represent realistic UI prototypes.
+3. Performing structured requirement-to-feature coverage reviews using checklists.
+
+### Problems or Difficulties
+1. Structuring the critique comment form UI to make it feel encouraging and helpful without being cluttered.
+2. Balancing the layout of the gallery card grid so that tags and status badges are readable on smaller device viewports.
+
+### Evidence of Work
+- Product Concept: [product-concept.md](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/docs/product-concept.md)
+- Feature Mapping: [feature-requirement-mapping.md](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/docs/feature-requirement-mapping.md)
+- Usability Checklist: [wireframe-usability-checklist.md](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/docs/wireframe-usability-checklist.md)
+- Wireframe Specs: [wireframe-specification.md](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/docs/wireframe-specification.md)
+- Prototype Codebase: [prototype/wireframe/](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/prototype/wireframe/)
+
+### Decisions Made This Week
+- We decided on a Pixiv-style gallery format with a focus on categorized feeds and a custom structured feedback comment component.
+- We opted to skip commercial and payment features in the MVP to minimize technical complexity and focus on community feedback.
+
+### Plan for Next Week
+- Transition the HTML/CSS wireframes into a fully connected, interactive prototype with working navigation and mock data.
