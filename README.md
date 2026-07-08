@@ -36,8 +36,10 @@ Explain the purpose of each folder.
 | Lab 2 | Opportunity Scanning | NUF Scoring Forms, Selected ideas          | Complete |
 | Lab 3 | Collect user responses and analyse them | User Pain Points Survey and User Responses | Complete |
 | Lab 4 | Create User Persona | Decide which features are neccesary based on User Persona | Complete |  
+| Lab 5 | Product Concept & Wireframing | Defined product concept, requirement mapping, wireframe design, and usability checklist | Complete |
 ## Current Status
  Created the Github Repository and Exchange ideas with each other.(Lab 1)
  We reviewed six possible IT opportunities, scored them using NUF, and selected idea 5 as our semester project idea.(lab 2)
+ We defined our product concept, mapped features to requirements, designed user flows, created HTML/CSS wireframes, and completed a usability review checklist.(Lab 5)
 ## Next Step
-To decide which idea we are going to continue.
+Transition the wireframe screens into a functional interactive prototype.
