@@ -1,0 +1,6 @@
+Comments_id,Art_id,User_id,Content,Status
+C001,A001,U002,"The sunset colors make the ice cream look warm and magical.",Published
+C002,A002,U003,"The mint palette feels fresh, and the music theme is easy to understand.",Published
+C003,A003,U001,"I like the city lighting, but the image could use more contrast.",Underchecking
+C004,A001,U005,"The composition is balanced and the scoop details are very cute.",Published
+C005,A004,U004,"I withdrew this artwork because I want to revise the background.",Withdrawn

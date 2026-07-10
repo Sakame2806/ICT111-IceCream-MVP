@@ -1,0 +1,6 @@
+Art_id,User_id,File_Address,Tags,Comments,Status
+A001,U001,/app/static/arts/sundae-sunset.png,"icecream|sunset|digital","C001|C004",Published
+A002,U002,/app/static/arts/mint-melody.png,"mint|music|pastel","C002",Published
+A003,U003,/app/static/arts/cocoa-city.png,"chocolate|city|night","C003",Underchecking
+A004,U004,/app/static/arts/vanilla-garden.png,"vanilla|garden|watercolor","C005",Withdrawn
+A005,U005,/app/static/arts/berry-dream.png,"berry|dream|abstract","",Published
