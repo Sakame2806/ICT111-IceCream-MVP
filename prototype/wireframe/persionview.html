@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页 | 艺术品创作者空间</title>
+    <style>
+        /* 全局基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #212529;
+            padding-bottom: 60px;
+        }
+
+        /* 顶部导航栏 */
+        .navbar {
+            height: 64px;
+            background: #ffffff;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            position: sticky;
+            top: 0;
+            z-index: 90;
+        }
+
+        .nav-logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: #4f46e5;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #4f46e5;
+        }
+
+        /* 个人主页头部 (Banner & 头像) */
+        .profile-header {
+            background: #fff;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 30px;
+        }
+
+        .profile-banner {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .profile-info-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            margin-top: -60px; /* 让头像往上移，压在Banner上 */
+        }
+
+        .main-avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 5px solid #ffffff;
+            object-fit: cover;
+            background: #eee;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .user-details {
+            margin-left: 24px;
+            margin-bottom: 10px;
+            flex: 1;
+        }
+
+        .user-name-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .user-name {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .btn-edit {
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+            color: #4b5563;
+            padding: 6px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-edit:hover {
+            background: #f3f4f6;
+            border-color: #9ca3af;
+            color: #1f2937;
+        }
+
+        .user-title {
+            font-size: 14px;
+            color: #4f46e5;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .user-bio {
+            font-size: 14px;
+            color: #6b7280;
+            margin-top: 8px;
+            max-width: 600px;
+            line-height: 1.5;
+        }
+
+        /* 主体内容区 */
+        .content-container {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding: 0 40px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 18px;
+            background: #4f46e5;
+            border-radius: 2px;
+        }
+
+        /* 推荐作品网格 (响应式布局) */
+        .art-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .art-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .art-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .art-cover {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #f3f4f6;
+        }
+
+        .art-info {
+            padding: 16px;
+        }
+
+        .art-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1f2937;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .art-meta {
+            margin-top: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #9ca3af;
+        }
+
+        .art-tag {
+            background: #eef2ff;
+            color: #4f46e5;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* 弹窗样式 (修改个人信息) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #4b5563;
+            margin-bottom: 6px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 14px;
+            color: #1f2937;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .modal-actions {
+            margin-top: 28px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+
+        .btn-cancel {
+            background: #f3f4f6;
+            border: none;
+            color: #4b5563;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-save {
+            background: #4f46e5;
+            border: none;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
+        }
+
+        .btn-save:hover {
+            background: #4338ca;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航 -->
+    <nav class="navbar">
+        <div class="nav-logo">ARTSPACE</div>
+        <div class="nav-right">
+            <img class="nav-avatar" id="navAvatar" src="https://picsum.photos/150/150?random=11" alt="用户头像">
+        </div>
+    </nav>
+
+    <!-- 个人主页头部区 -->
+    <header class="profile-header">
+        <div class="profile-banner">
+            <!-- 艺术背景大图 -->
+            <img src="https://picsum.photos/1200/400?random=20" alt="背景横幅">
+        </div>
+        <div class="profile-info-wrapper">
+            <img class="main-avatar" id="displayAvatar" src="https://picsum.photos/150/150?random=11" alt="主头像">
+            <div class="user-details">
+                <div class="user-name-row">
+                    <h1 class="user-name" id="displayName">Evelyn Vance</h1>
+                    <button class="btn-edit" onclick="openEditModal()">修改个人信息</button>
+                </div>
+                <div class="user-title" id="displayTitle">资深概念设计师 / 插画师</div>
+                <p class="user-bio" id="displayBio">专注于赛博朋克美学与科幻场景美术。拥有5年游戏行业美术研发经验，擅长运用独特的光影色彩编织超现实梦境。</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主体内容：个人推荐作品 -->
+    <main class="content-container">
+        <h2 class="section-title">个人推荐作品</h2>
+        
+        <div class="art-grid">
+            <!-- 作品卡片 1 -->
+            <div class="art-card">
+                <img class="art-cover" src="https://picsum.photos/500/400?random=1" alt="作品">
+                <div class="art-info">
+                    <div class="art-title">霓虹雨夜：复古未来纪元</div>
+                    <div class="art-meta">
+                        <span class="art-tag">数码插画</span>
+                        <span>❤️ 1,240</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 作品卡片 2 -->
+            <div class="art-card">
+                <img class="art-cover" src="https://picsum.photos/500/400?random=2" alt="作品">
+                <div class="art-info">
+                    <div class="art-title">荒原回响 - 概念场景设计</div>
+                    <div class="art-meta">
+                        <span class="art-tag">场景美术</span>
+                        <span>❤️ 986</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 作品卡片 3 -->
+            <div class="art-card">
+                <img class="art-cover" src="https://picsum.photos/500/400?random=3" alt="作品">
+                <div class="art-info">
+                    <div class="art-title">仿生人的白日梦想</div>
+                    <div class="art-meta">
+                        <span class="art-tag">角色设计</span>
+                        <span>❤️ 2,150</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 作品卡片 4 -->
+            <div class="art-card">
+                <img class="art-cover" src="https://picsum.photos/500/400?random=4" alt="作品">
+                <div class="art-info">
+                    <div class="art-title">星穹铁道边缘的信使</div>
+                    <div class="art-meta">
+                        <span class="art-tag">数码插画</span>
+                        <span>❤️ 854</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 修改个人信息 - 模态弹窗 -->
+    <div class="modal-overlay" id="editModal">
+        <div class="modal-content">
+            <div class="modal-header">修改个人资料</div>
+            
+            <div class="form-group">
+                <label for="inputName">昵称 / 艺术家名称</label>
+                <input type="text" id="inputName" value="">
+            </div>
+            
+            <div class="form-group">
+                <label for="inputTitle">个人头衔 / 职业标签</label>
+                <input type="text" id="inputTitle" value="">
+            </div>
+            
+            <div class="form-group">
+                <label for="inputBio">个人简介 (Bio)</label>
+                <textarea id="inputBio" rows="4"></textarea>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeEditModal()">取消</button>
+                <button class="btn-save" onclick="saveProfileData()">保存修改</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 交互逻辑控制 -->
+    <script>
+        const modal = document.getElementById('editModal');
+        
+        // 打开修改弹窗并回填现有数据
+        function openEditModal() {
+            document.getElementById('inputName').value = document.getElementById('displayName').innerText;
+            document.getElementById('inputTitle').value = document.getElementById('displayTitle').innerText;
+            document.getElementById('inputBio').value = document.getElementById('displayBio').innerText;
+            
+            modal.classList.add('active');
+        }
+
+        // 关闭弹窗
+        function closeEditModal() {
+            modal.classList.remove('active');
+        }
+
+        // 保存并实时更新页面展示的信息
+        function saveProfileData() {
+            const newName = document.getElementById('inputName').value;
+            const newTitle = document.getElementById('inputTitle').value;
+            const newBio = document.getElementById('inputBio').value;
+
+            // 如果内容不为空则更新视图
+            if(newName.trim()) document.getElementById('displayName').innerText = newName;
+            if(newTitle.trim()) document.getElementById('displayTitle').innerText = newTitle;
+            if(newBio.trim()) document.getElementById('displayBio').innerText = newBio;
+
+            // 关闭弹窗
+            closeEditModal();
+        }
+
+        // 点击背景遮罩层也可以关闭弹窗
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeEditModal();
+            }
+        });
+    </script>
+</body>
+</html>
