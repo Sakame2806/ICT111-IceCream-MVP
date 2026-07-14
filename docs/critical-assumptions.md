@@ -1,14 +1,10 @@
 # Critical Assumptions
 
-| Category | Assumption | Risk Level | Evidence Level |
-| :--- | :--- | :--- | :--- |
-| **User Problem** | Artists are frustrated with general chat groups (Telegram/Line) where artworks get buried quickly. | Medium | Moderate |
-| **User Problem** | Artists struggle to find art and communities tailored to their specific fandoms and styles. | Low | Strong |
-| **Value** | Artists will use a dedicated platform primarily to organize portfolios and receive structured feedback. | High | Strong |
-| **Value** | Creators value structured critique over superficial likes or standard comments enough to switch platforms. | High | Moderate |
-| **Usability** | Users will find the structured critique forms intuitive and not overly burdensome to complete. | High | Weak |
-| **Usability** | Artists will easily understand how to tag and categorize their uploads by style and fandom. | Medium | Weak |
-| **Technical Feasibility** | A web-based application can deliver a high-quality viewing experience for detailed art across device sizes. | Medium | Weak |
-| **Technical Feasibility** | The system can support robust image uploads, hosting, and tag-based filtering for the MVP without heavy infrastructure. | Low | Weak |
-| **Business Logic** | The community will proactively give constructive critiques to others (e.g., via a karma system) without financial incentives. | High | Weak |
-| **Business Logic** | Core features centered on feedback and discovery are sufficient for user retention, deferring monetization/commissions. | Medium | Moderate |
+| Category                  | Assumption                                                                                                              | Related Requirement/User Story | Risk Level | Current Evidence              | How to test                                                       |
+|:--------------------------|:------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------|:------------------------------|:------------------------------------------------------------------|
+| **User Problem**          | As a comic artist, I want readers can view the comic in order and give useful critiques.                                | FR-02 / US-05                  | High       | Lab 04 User Stories           | *Test How many comments are talking about the Painting skills.    |
+| **Value**                 | Artists will use a dedicated platform primarily for discussion.                                                         | FR-07 / US-07                  | Moderate   | Lab 04 User Stories           | Ask this questions in user surveys,                               |
+| **Usability**             | Tags are helpful for Fans to find arts they like.                                                                       | F-03 / US-03, US-04, US-08     | High       | No Evidence                   | Track How many times have our users got accesse artworks via Tags |
+| **Technical Feasibility** | A web-based application can deliver a high-quality viewing experience for detailed art across device sizes.             | F-02 / US-05                   | Weak       | No Evidence                   | Test the artwork detail and multi-page comic pages on desktop, tablet, and mobile screen sizes; record whether users can view details without zooming or losing page order. |
+| **Technical Feasibility** | The system can support robust image uploads, hosting, and tag-based filtering for the MVP without heavy infrastructure. | F-02, F-03 / US-03, US-04, US-05, US-08 | Weak       | Lab 06 technical-architecture | Upload several sample artworks with different file sizes and tags, then check whether each artwork saves correctly and appears in the correct filtered gallery results. |
+| **Business Logic**        | Core features centered on feedback and discovery are sufficient for user retention.                                     | F-03, F-04 / US-01, US-02, US-03, US-04, US-06, US-08, FUT-01, FUT-02 | Moderate   |                               | Run a user test where participants browse tagged artworks and leave critiques; ask whether they would return without commission or payment features. |
