@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixiv 数据分析仪表盘</title>
+    <style>
+        :root {
+            --bg-color: #f4f5f7;
+            --card-bg: #ffffff;
+            --text-main: #1f1f1f;
+            --text-muted: #7a7a7a;
+            --accent-orange: #ff9800;
+            --accent-blue: #0096fa;
+            --border-radius-lg: 16px;
+            --border-radius-sm: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding-bottom: 60px;
+        }
+
+        /* --- 顶部导航栏 --- */
+        header {
+            background-color: #ffffff;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            border-bottom: 1px solid #e9ebe8;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--accent-blue);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #f0f2f5;
+            border-radius: var(--border-radius-sm);
+            padding: 6px 12px;
+            width: 320px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .search-dropdown {
+            font-size: 12px;
+            color: var(--text-muted);
+            border-left: 1px solid #dcdcdc;
+            padding-left: 8px;
+            margin-left: 8px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn-premium {
+            color: var(--accent-orange);
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .btn-submit {
+            background-color: #f0f2f5;
+            border: none;
+            padding: 8px 16px;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .icon-group {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: var(--text-muted);
+            cursor: pointer;
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #cbd5e1;
+            display: inline-block;
+        }
+
+        /* --- 主体内容布局 --- */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 24px;
+        }
+
+        .page-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* --- 导航标签页 --- */
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            align-items: center;
+        }
+
+        .tab {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--text-muted);
+            text-decoration: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .tab.active {
+            background-color: #e2e8f0;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .badge-p {
+            background-color: var(--accent-orange);
+            color: white;
+            font-size: 10px;
+            padding: 1px 4px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        /* --- 通用卡片样式 --- */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius-lg);
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid #e9eef2;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .icon-info {
+            color: var(--text-muted);
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .link-more {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        /* --- 近期投稿作品 (全宽卡片) --- */
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 0;
+            color: var(--text-muted);
+            gap: 16px;
+        }
+
+        .empty-icon {
+            font-size: 40px;
+            opacity: 0.5;
+        }
+
+        .btn-action {
+            background-color: #f0f2f5;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 20px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-action:hover {
+            background-color: #e2e8f0;
+        }
+
+        /* --- 三栏网格布局 --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 栏目一：总反馈数 */
+        .metrics-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .metric-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .metric-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .metric-value {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .btn-full-width {
+            width: 100%;
+            background-color: #f8f9fa;
+            border: none;
+            padding: 12px;
+            border-radius: 24px;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* 栏目二：今日出题 */
+        .topic-banner {
+            background: linear-gradient(135deg, #ffe082, #fff9c4);
+            border-radius: var(--border-radius-sm);
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 16px;
+            margin-bottom: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topic-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .topic-tag {
+            font-size: 12px;
+            color: #795548;
+            margin-bottom: 12px;
+        }
+
+        .topic-subtext {
+            font-size: 13px;
+            color: var(--text-main);
+        }
+
+        .topic-hint {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        /* 栏目三：正在举办的比赛 */
+        .contest-card {
+            border: 1px solid #e9ebe8;
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+        }
+
+        .contest-img {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(45deg, #6a1b9a, #8e24aa);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .contest-info {
+            padding: 12px;
+        }
+
+        .contest-title {
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        /* 返回顶部浮动按钮 */
+        .btn-gotop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 40px;
+            height: 40px;
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航栏 -->
+    <header>
+        <div class="header-left">
+            <a href="#" class="logo">pixiv</a>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索插画、漫画">
+                <div class="search-dropdown">插画・漫画 ▾</div>
+            </div>
+        </div>
+        <div class="header-right">
+            <a href="#" class="btn-premium">加入pixiv高级会员</a>
+            <button class="btn-submit">投稿 ▾</button>
+            <div class="icon-group">
+                <span>✉</span>
+                <span>🔔</span>
+                <span class="avatar"></span>
+                <span>㗊</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主体区域 -->
+    <main>
+        <h1 class="page-title">数据分析</h1>
+
+        <!-- 标签导航栏 -->
+        <div class="tabs">
+            <a class="tab active">首页</a>
+            <a class="tab">作品</a>
+            <a class="tab">反馈</a>
+            <a class="tab">流量分析 <span class="badge-p">P</span></a>
+            <a class="tab">排行榜数据报告 <span class="badge-p">P</span></a>
+        </div>
+
+        <!-- 近期投稿的作品 (全宽卡片) -->
+        <section class="card">
+            <div class="card-header">
+                <div class="card-title">近期投稿的作品 <span class="icon-info">ⓘ</span></div>
+                <a href="#" class="link-more">查看全部</a>
+            </div>
+            <div class="empty-state">
+                <div class="empty-icon">🖼️</div>
+                <p>尝试投稿您的作品吧</p>
+                <button class="btn-action">投稿作品</button>
+            </div>
+        </section>
+
+        <!-- 三栏下方网格 -->
+        <div class="grid-container">
+            
+            <!-- 栏目一：总反馈数 -->
+            <section class="card">
+                <div class="card-header">
+                    <div class="card-title">总反馈数 <span class="icon-info">ⓘ</span></div>
+                </div>
+                <div class="metrics-list">
+                    <div class="metric-item">
+                        <div class="metric-label">👁️ 浏览量</div>
+                        <div class="metric-value">0</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">👍 赞！</div>
+                        <div class="metric-value">0</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">❤️ 收藏</div>
+                        <div class="metric-value">0</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">💬 评论</div>
+                        <div class="metric-value">0</div>
+                    </div>
+                </div>
+                <button class="btn-full-width">查看详情 <span style="color:var(--accent-orange)">🍊</span></button>
+            </section>
+
+            <!-- 栏目二：今日出题 -->
+            <section class="card">
+                <div class="card-header">
+                    <div class="card-title">pixiv今日出题 <span class="icon-info">ⓘ</span></div>
+                </div>
+                <div class="topic-banner">
+                    <div class="topic-title">向日葵</div>
+                    <div class="topic-tag">#ひまわり</div>
+                    <div class="topic-subtext">马上动笔画画看吧</div>
+                </div>
+                <p class="topic-hint">完成作品后就加上标签投稿吧。</p>
+                <button class="btn-full-width" style="background-color: #f0f2f5;">投稿作品</button>
+            </section>
+
+            <!-- 栏目三：正在举办的比赛 -->
+            <section class="card">
+                <div class="card-header">
+                    <div class="card-title">正在举办的比赛</div>
+                </div>
+                <div class="contest-card">
+                    <div class="contest-img">
+                        <div>
+                            <div style="font-size:12px; opacity:0.8;">pixiv × Comic Avenue 12</div>
+                            <div style="font-size:16px; margin-top:8px;">pixiv's Selected Artist</div>
+                            <div style="font-size:10px; background:rgba(0,0,0,0.3); padding:4px; margin-top:10px; border-radius:4px;">招募中：至 2026年7月31日</div>
+                        </div>
+                    </div>
+                    <div class="contest-info">
+                        <div class="contest-title">pixiv x Comic Avenue 12 "pixiv's Selected Artist"</div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- 返回顶部悬浮按钮 -->
+    <div class="btn-gotop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</div>
+
+</body>
+</html>
