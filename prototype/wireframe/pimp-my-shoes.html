@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pimp My Shoes Contest Entry Form</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #111;
+            background: #fff;
+            margin: 0;
+            padding: 24px;
+        }
+
+        main {
+            max-width: 680px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin: 0 0 24px;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 0 0 22px;
+        }
+
+        form {
+            font-size: 18px;
+        }
+
+        fieldset {
+            border: 0;
+            margin: 0 0 26px;
+            padding: 0;
+        }
+
+        legend {
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        label {
+            line-height: 1.35;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 260px;
+            height: 28px;
+            border: 2px solid #777;
+            font-size: 16px;
+            padding: 2px 6px;
+        }
+
+        textarea {
+            display: block;
+            width: 590px;
+            max-width: 100%;
+            height: 130px;
+            border: 2px solid #777;
+            font-size: 18px;
+            padding: 10px;
+            resize: vertical;
+        }
+
+        .textarea-label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+
+        .choice-group {
+            margin: 8px 0 26px 88px;
+        }
+
+        .choice-group label {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        select {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 3px 28px 3px 16px;
+            border: 2px solid #777;
+            border-radius: 18px;
+            background-color: #fff;
+        }
+
+        .actions {
+            display: flex;
+            gap: 60px;
+            margin-top: 20px;
+        }
+
+        button {
+            min-width: 170px;
+            border: 2px solid #777;
+            background: #fff;
+            color: #111;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 4px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>&ldquo;Pimp My Shoes&rdquo; Contest Entry Form</h1>
+
+        <p>
+            Want to trade in your old sneakers for a custom pair of Forcefields?
+            Make a case for why your shoes have got to go and you may be one of
+            ten lucky winners.
+        </p>
+
+        <form method="post">
+            <fieldset>
+                <legend>Contest Entry Information</legend>
+
+                <div class="form-row">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name">
+                </div>
+
+                <div class="form-row">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+                </div>
+
+                <div class="form-row">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <label class="textarea-label" for="story">My shoes are SO old...</label>
+                <textarea id="story" name="story" maxlength="300" placeholder="No more than 300 characters long"></textarea>
+            </fieldset>
+
+            <fieldset>
+                <legend>Design your custom Forcefields:</legend>
+                <div>Custom shoe design</div>
+
+                <div class="section-title">Color (choose one):</div>
+                <div class="choice-group">
+                    <label><input type="radio" name="color" value="red"> Red</label>
+                    <label><input type="radio" name="color" value="blue"> Blue</label>
+                    <label><input type="radio" name="color" value="black"> Black</label>
+                    <label><input type="radio" name="color" value="silver"> Silver</label>
+                </div>
+
+                <div class="section-title">Features (choose as many as you want):</div>
+                <div class="choice-group">
+                    <label><input type="checkbox" name="features" value="sparkley-laces"> Sparkley laces</label>
+                    <label><input type="checkbox" name="features" value="metallic-logo" checked> Metallic logo</label>
+                    <label><input type="checkbox" name="features" value="light-up-heels"> Light-up heels</label>
+                    <label><input type="checkbox" name="features" value="mp3-enabled"> MP3-enabled</label>
+                </div>
+
+                <div class="form-row">
+                    <label for="size">Size<br>(Sizes reflect standard men's sizing):</label>
+                    <select id="size" name="size">
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <div class="actions">
+                <button type="submit">Pimp My Shoes!</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

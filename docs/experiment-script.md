@@ -1,13 +1,13 @@
 # Experiment Script
 
 ## Objective (Choose one based on your focus)
-- **Option 2 (Discovery Focus):** To validate whether campus digital artists can easily navigate IceCream to find artworks that match their preferred style, fandom, and critique needs.
+- **Option 2 (Discovery Focus):** To validate whether artists and Hobbyist can easily navigate IceCream to find artworks that match their preferred style, fandom, and critique needs.
 
 ## 1. Opening Script
 Thank you for helping us test the IceCream prototype. We are evaluating how clearly the platform helps artists discover relevant artwork and connect with other creators. This is not a test of you; we are testing the product experience and interface. Please explore the prototype as you normally would and think aloud while you use it.
 
 ## 2. Test Scenario
-You are a campus digital artist who wants to discover artwork that matches a style or fandom you are interested in. You are looking for examples that feel relevant to your own interests, and you want to see whether IceCream makes it easy to browse, filter, and understand the gallery.
+You are a campus artists and Hobbyist who wants to discover artwork that matches a style or fandom you are interested in. You are looking for examples that feel relevant to your own interests, and you want to see whether IceCream makes it easy to browse, filter, and understand the gallery.
 
 ## 3. Tasks for Tester
 | Task No. | Task Instruction | Related Requirement | Expected Result |
