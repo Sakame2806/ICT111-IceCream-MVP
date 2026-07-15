@@ -139,3 +139,40 @@ All members contributed to this repository through commits, issues, or pull requ
 
 ### Plan for Next Week
 - Transition the HTML/CSS wireframes into a fully connected, interactive prototype with working navigation and mock data.
+
+## Lab 06: MVP Experiment Plan
+
+### What We Completed
+1. Defined the MVP experiment objective to validate if artists and hobbyists can easily navigate IceCream to find artworks that match their preferences.
+2. Determined the requirement scope for the experiment (Detail view, Upload Page, Tagging function).
+3. Selected a backend/database prototype as the MVP experiment type.
+4. Identified the test user groups (Hobbyists and Artists).
+
+### What We Learned
+1. How to structure an experiment to validate core assumptions effectively.
+2. The importance of selecting the right type of prototype (backend/database) to test our specific community engagement hypotheses.
+
+### Evidence of Work
+- MVP Experiment Plan: [mvp-experiment-plan.md](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/docs/mvp-experiment-plan.md)
+
+### Plan for Next Week
+- Create the experiment script and conduct the actual user testing using the backend/database prototype.
+
+## Lab 07: Experiment Script & Testing
+
+### What We Completed
+1. Created a structured experiment script to guide test users through the IceCream prototype.
+2. Defined a specific test scenario where users act as campus artists and hobbyists looking to discover relevant artwork.
+3. Detailed a set of 5 concrete tasks (e.g., browse gallery, use filters, open artwork details) to evaluate the requirements.
+4. Observed users and recorded answers to closing questions regarding what was easy, confusing, or most useful.
+
+### What We Learned
+1. How to conduct user testing without bias by focusing on the product experience rather than testing the user.
+2. The landing page clearly communicates the value proposition, but some users may find the tagging and structured critique focus slightly confusing initially.
+3. The upload flow and structured critique features are considered the most useful parts of the MVP.
+
+### Evidence of Work
+- Experiment Script: [experiment-script.md](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/docs/experiment-script.md)
+
+### Plan for Next Week
+- Analyze the experiment results in detail and refine the prototype's interface and flow based on the user feedback gathered.
