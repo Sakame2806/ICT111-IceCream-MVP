@@ -176,3 +176,25 @@ All members contributed to this repository through commits, issues, or pull requ
 
 ### Plan for Next Week
 - Analyze the experiment results in detail and refine the prototype's interface and flow based on the user feedback gathered.
+
+## Lab 08: MVP Data Analysis and Decision Making
+
+### What We Completed
+1. Analyzed the MVP validation data (N=20) using PowerBI to identify quantitative performance indicators.
+2. Created an Analytics Insights report to break down usability bottlenecks and role-based segmentations.
+3. Synthesized findings into a Customer Validation Summary to outline the validation status and critical friction points.
+4. Drafted an MVP Decision & Strategic Roadmap to shift focus from feature expansion to experience optimization.
+
+### What We Learned
+1. How to use data analysis tools like PowerBI to extract actionable insights from user testing data.
+2. The core functionality of our MVP was validated, but significant UX friction exists (65% confusion rate).
+3. The importance of prioritizing UI/UX refinement, specifically for new/general users, over adding new features.
+
+### Evidence of Work
+- Analytics Insights: [analytics-insights.md](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/docs/analytics-insights.md)
+- Customer Validation Summary: [customer-validation-summary.md](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/docs/customer-validation-summary.md)
+- MVP Decision: [mvp-decision.md](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/docs/mvp-decision.md)
+- PowerBI Dashboard Screenshot: ![PowerBI Dashboard](/Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/screenshots/lab08-powerbi-dashboard.png)
+
+### Plan for Next Week
+- Implement the high-priority UX redesigns identified in the MVP decision roadmap.
