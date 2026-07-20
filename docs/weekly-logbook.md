@@ -198,3 +198,21 @@ All members contributed to this repository through commits, issues, or pull requ
 
 ### Plan for Next Week
 - Implement the high-priority UX redesigns identified in the MVP decision roadmap.
+
+## Lab 09: Success Metrics and Feedback Form
+
+### What We Completed
+1. Defined quantitative success metrics and specific targets (e.g., 80% task completion rate) for evaluating the MVP.
+2. Established clear decision rules based on whether the metrics meet their targets.
+3. Drafted a structured feedback form with rating questions and open-ended questions for test users.
+
+### What We Learned
+1. The importance of establishing concrete success metrics prior to measuring usability and feature success.
+2. How to create an effective feedback form that captures both quantitative ratings and qualitative insights.
+
+### Evidence of Work
+- Success Metrics: [success-metrics.md](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/docs/success-metrics.md)
+- Feedback Form: [feedback-form.md](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/docs/feedback-form.md)
+
+### Plan for Next Week
+- Implement the structured feedback mechanism into our testing workflow and track the defined success metrics during the next phase of MVP validation.

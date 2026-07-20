@@ -40,11 +40,13 @@ Explain the purpose of each folder.
 | Lab 6 | MVP Experiment Plan | Created MVP experiment plan to validate core features | Complete |
 | Lab 7 | Experiment Script & Testing | Created experiment script and observed user tests | Complete |
 | Lab 8 | MVP Data Analysis | Analyzed user testing data and documented MVP decisions | Complete |
+| Lab 9 | Success Metrics & Feedback Form | Defined success metrics, decision rules, and drafted the feedback form | Complete |
 ## Current Status
  Created the Github Repository and Exchange ideas with each other.(Lab 1)
  We reviewed six possible IT opportunities, scored them using NUF, and selected idea 5 as our semester project idea.(lab 2)
  We defined our product concept, mapped features to requirements, designed user flows, created HTML/CSS wireframes, and completed a usability review checklist.(Lab 5)
  We planned our MVP experiment and prepared the experiment script to validate our prototype with target users. (Lab 6 & 7)
  We analyzed the MVP validation data, documented actionable insights, and established a strategic roadmap focusing on UX optimization. (Lab 8)
+ We defined success metrics and drafted a structured feedback form to measure our MVP's performance in upcoming experiments. (Lab 9)
 ## Next Step
-Implement the high-priority UX redesigns identified during data analysis to reduce user friction.
+Use the established metrics and feedback form to evaluate the implemented UX redesigns.
