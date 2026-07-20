@@ -1,0 +1,20 @@
+# Updated Requirements Note
+
+## Purpose
+Use this file only if Lab 09 review requires a change to system-requirements.md.
+
+The Lab 09 responsible design review found that the IceCream project can continue, but several requirements should be updated or clarified before final implementation. These changes do not replace the project direction. They make the existing requirements safer, more privacy-aware, and more traceable.
+
+| Requirement ID | Original Requirement | Proposed Update | Reason for Change | Supporting Evidence | GitHub Issue/Commit | Approved by Team? |
+|---|---|---|---|---|---|---|
+| FR-03 | Artwork/Comic Upload Form collects title, description, image upload, style tags, fandom tags, and critique focus. Structured Critique Form collects category and text feedback. | Add an ownership/permission confirmation checkbox before upload. Add a warning not to include private contact details or sensitive personal information in descriptions or comments. | Lab 09 identified legal/IP risk from users uploading artwork they do not own and privacy risk from free-text fields. | `docs/ip-and-third-party-assets.md`, `docs/privacy-and-data-protection.md`, `docs/risk-register.md` R-05 | To be added | Pending |
+| FR-09 | Moderator dashboard can review reported entries, delete off-topic/offensive comments, and pin high-quality educational critiques. | Clarify that moderator functions must be role-restricted and separated from normal user screens. Moderation actions should include a reason or action log. | Lab 09 security review found that admin actions need access control to prevent normal users from deleting, pinning, banning, or changing statuses. | `docs/security-risk-check.md`, `docs/risk-register.md` R-04 | To be added | Pending |
+| FR-10 | Form validations enforce required fields, file type restrictions, and minimum critique length. | Expand validation to include file size limits, duplicate/invalid tag prevention, clear error messages, text sanitization, and role-based validation for status changes. | Prototype review found required fields are visually marked but not enforced, upload validation is not implemented, and Lab 08 data showed duplicate tag creation caused failure. | `docs/security-risk-check.md`, `data/validation-results.csv`, `docs/risk-register.md` R-06 and R-08 | To be added | Pending |
+| FR-12 | Creator dashboard shows total views/likes, critique breakdown, and Critique Karma score. | Clarify that creator analytics are private to the creator/admin and should not be used as a public ranking feature in the MVP. | Lab 09 privacy and ethical review found that public analytics or karma ranking could expose behavior data and discourage beginner artists. | `docs/privacy-and-data-protection.md`, `docs/legal-ethical-checklist.md`, `docs/risk-register.md` R-09 | To be added | Pending |
+| FR-15 | Profile accounts use student aliases/usernames rather than real names or student IDs, masked contact information, and clear educational-use disclaimers. | Strengthen this requirement: do not collect real names, student IDs, private contact details, gender, date of birth, or real/plain-text passwords for the MVP unless a documented requirement is approved. Use aliases and anonymized sample data only. | Lab 09 found that `sign.html` collects gender and date of birth, while the MVP data model only needs nickname/alias and authentication. Passwords are sensitive and must not be stored in mock CSV data. | `docs/privacy-and-data-protection.md`, `docs/security-risk-check.md`, `prototype/wireframe/sign.html`, `data/Users_records.csv`, `docs/risk-register.md` R-01 and R-07 | To be added | Pending |
+
+## Rule
+Do not silently change system requirements. Every change must be justified, documented, and traceable.
+
+## Summary Decision
+Lab 09 review **does require requirement updates/clarifications** before final implementation. The affected requirements are FR-03, FR-09, FR-10, FR-12, and FR-15. The team should create GitHub issues or commits for each update before marking them approved.
