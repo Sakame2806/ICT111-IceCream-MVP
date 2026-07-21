@@ -10,48 +10,125 @@
         body {
             background-color: #f5f5f5;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Top Navigation Bar - copied from Upload.html and mapped to this page header */
+        header {
+            display: flex;
+            align-items: center;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .logo {
+            color: #0096fa;
+            font-weight: bold;
+            font-size: 24px;
+            margin-right: 20px;
+            text-decoration: none;
+        }
+
+        .search-bar {
+            background: #eee;
+            padding: 8px 15px;
+            border-radius: 20px;
+            flex: 0 1 400px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 14px;
+        }
+
+        .search-dropdown {
+            color: #555;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .header-right {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-premium {
+            color: #555;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .btn-submit {
+            background: #0096fa;
+            color: white;
+            border: none;
+            padding: 6px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .icon-group {
+            color: #555;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .avatar {
+            width: 30px;
+            height: 30px;
+            background: #ccc;
+            border-radius: 50%;
+            display: inline-block;
         }
     </style>
 </head>
 <body>
 
-    <header class="sticky top-0 z-50 bg-white border-b border-gray-200 px-4 py-2.5 flex items-center justify-between shadow-sm">
-        <div class="flex items-center space-x-6 flex-1 max-w-4xl">
-            <a href="#" class="text-blue-600 font-black text-2xl tracking-wider flex items-center">
-                <span class="bg-blue-600 text-white px-1.5 py-0.5 rounded mr-1 text-sm font-bold">P</span>pixiv
-            </a>
-            
-            <div class="relative w-full max-w-xl hidden md:block">
-                <input type="text" placeholder="Illustrations, manga, novels or users" class="w-full bg-gray-100 border border-transparent focus:border-blue-500 focus:bg-white rounded-md pl-10 pr-4 py-2 text-sm transition-colors outline-none text-gray-700">
-                <div class="absolute left-3 top-2.5 text-gray-400">
-                    <i class="fas fa-search"></i>
+        <!-- 顶部导航栏 -->
+        <header>
+            <div class="header-left">
+                <a href="#" class="logo">IceCream</a>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search Illustrations/Manga">
+                    <div class="search-dropdown">Illustrations / Manga ▾</div>
                 </div>
             </div>
-        </div>
-
-        <div class="flex items-center space-x-4">
-            <button class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-1.5 rounded-full transition-colors hidden sm:block">
-                <i class="fas fa-upload mr-1"></i> Submit
-            </button>
-            
-            <button class="text-gray-600 hover:text-blue-600 p-2 rounded-full hover:bg-gray-100 transition-colors relative">
-                <i class="far fa-comment-alt text-xl"></i>
-                <span class="absolute top-1 right-1 bg-red-500 w-2 h-2 rounded-full"></span>
-            </button>
-
-            <button class="text-gray-600 hover:text-blue-600 p-2 rounded-full hover:bg-gray-100 transition-colors">
-                <i class="far fa-bell text-xl"></i>
-            </button>
-
-            <button class="text-gray-600 hover:text-blue-600 p-2 rounded-full hover:bg-gray-100 transition-colors">
-                <i class="fas fa-th text-xl"></i>
-            </button>
-
-            <div class="w-8 h-8 rounded-full overflow-hidden border border-gray-200 cursor-pointer">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="User Avatar" class="w-full h-full object-cover">
+            <div class="header-right">
+                <a href="#" class="btn-premium">Join IceCream Premium</a>
+                <button class="btn-submit">Submit ▾</button>
+                <div class="icon-group">
+                    <span>✉</span>
+                    <span>🔔</span>
+                    <span class="avatar">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=150&amp;q=80" alt="Artist Avatar" class="avatar">
+                    </span>
+                    <span>㗊</span>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
 
     <div class="max-w-7xl mx-auto px-4 mt-4">
         <div class="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg p-4 text-white flex items-center justify-between shadow-sm cursor-pointer">

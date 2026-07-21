@@ -1,48 +1,173 @@
-<script src="https://cdn.tailwindcss.com"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IceCream Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
 
-<div class="min-h-screen flex items-center justify-center bg-gradient-to-tr from-blue-50 to-white px-4">
-  
-  <div class="w-full max-w-md bg-white/60 backdrop-blur-lg border border-white/50 p-8 rounded-3xl shadow-xl">
+    /* Top Navigation Bar - shared with userpage.html */
+    header {
+      display: flex;
+      align-items: center;
+      padding: 8px 20px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      flex: 1;
+    }
+
+    .logo {
+      color: #0096fa;
+      font-weight: bold;
+      font-size: 24px;
+      margin-right: 20px;
+      text-decoration: none;
+    }
+
+    .search-bar {
+      background: #eee;
+      padding: 8px 15px;
+      border-radius: 20px;
+      flex: 0 1 400px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 14px;
+    }
+
+    .search-dropdown {
+      color: #555;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .header-right {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .btn-premium {
+      color: #555;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .btn-submit {
+      background: #0096fa;
+      color: white;
+      border: none;
+      padding: 6px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .icon-group {
+      color: #555;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .avatar {
+      width: 30px;
+      height: 30px;
+      background: #ccc;
+      border-radius: 50%;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <a href="#" class="logo">IceCream</a>
+      <div class="search-bar">
+        <input type="text" placeholder="Search Illustrations/Manga...">
+        <div class="search-dropdown">Illustrations / Manga ▾</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <a href="#" class="btn-premium">Premium</a>
+      <div class="icon-group">
+        <span>✉</span>
+        <span>🔔</span>
+        <span class="avatar"></span>
+        <span>㗊</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="min-h-screen flex items-center justify-center bg-gradient-to-tr from-blue-50 to-white px-4">
     
-    <div class="mb-8 text-center">
-      <h1 class="text-3xl font-bold text-slate-800">Gallery Access</h1>
-      <p class="text-slate-500 mt-2">Sign in to explore the creative space.</p>
-    </div>
-
-    <form class="space-y-5">
-      <div class="space-y-4">
-        <input type="email" placeholder="Email address" 
-          class="w-full px-4 py-3 rounded-xl border border-blue-100 bg-white/50 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 outline-none transition-all placeholder:text-slate-400">
-        
-        <input type="password" placeholder="Password" 
-          class="w-full px-4 py-3 rounded-xl border border-blue-100 bg-white/50 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 outline-none transition-all placeholder:text-slate-400">
+    <div class="w-full max-w-md bg-white/60 backdrop-blur-lg border border-white/50 p-8 rounded-3xl shadow-xl">
+      
+      <div class="mb-8 text-center">
+        <h1 class="text-3xl font-bold text-slate-800">Gallery Access</h1>
+        <p class="text-slate-500 mt-2">Sign in to explore the creative space.</p>
       </div>
 
-      <div class="flex items-center justify-between text-sm">
-        <label class="flex items-center text-slate-600 gap-2 cursor-pointer">
-          <input type="checkbox" class="w-4 h-4 accent-blue-600"> Remember me
-        </label>
-        <a href="#" class="text-blue-600 font-medium hover:underline">Forgot password?</a>
+      <form class="space-y-5">
+        <div class="space-y-4">
+          <input type="email" placeholder="Email address" 
+            class="w-full px-4 py-3 rounded-xl border border-blue-100 bg-white/50 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 outline-none transition-all placeholder:text-slate-400">
+          
+          <input type="password" placeholder="Password" 
+            class="w-full px-4 py-3 rounded-xl border border-blue-100 bg-white/50 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 outline-none transition-all placeholder:text-slate-400">
+        </div>
+
+        <div class="flex items-center justify-between text-sm">
+          <label class="flex items-center text-slate-600 gap-2 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 accent-blue-600"> Remember me
+          </label>
+          <a href="#" class="text-blue-600 font-medium hover:underline">Forgot password?</a>
+        </div>
+
+        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors shadow-lg shadow-blue-200">
+          Sign in
+        </button>
+      </form>
+
+      <div class="my-8 flex items-center gap-4">
+        <div class="h-px bg-blue-100 flex-1"></div>
+        <span class="text-xs text-slate-400 uppercase tracking-widest">Or continue with</span>
+        <div class="h-px bg-blue-100 flex-1"></div>
       </div>
 
-      <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors shadow-lg shadow-blue-200">
-        Sign in
-      </button>
-    </form>
+      <div class="grid grid-cols-2 gap-4">
+        <button class="py-2.5 rounded-xl border border-blue-100 bg-white/50 hover:bg-white text-slate-600 text-sm font-medium transition-all">Google</button>
+        <button class="py-2.5 rounded-xl border border-blue-100 bg-white/50 hover:bg-white text-slate-600 text-sm font-medium transition-all">Apple</button>
+      </div>
 
-    <div class="my-8 flex items-center gap-4">
-      <div class="h-px bg-blue-100 flex-1"></div>
-      <span class="text-xs text-slate-400 uppercase tracking-widest">Or continue with</span>
-      <div class="h-px bg-blue-100 flex-1"></div>
+      <p class="mt-8 text-center text-slate-600 text-sm">
+        New to our gallery? <a href="#" class="text-blue-600 font-bold hover:underline">Sign up for free</a>
+      </p>
     </div>
-
-    <div class="grid grid-cols-2 gap-4">
-      <button class="py-2.5 rounded-xl border border-blue-100 bg-white/50 hover:bg-white text-slate-600 text-sm font-medium transition-all">Google</button>
-      <button class="py-2.5 rounded-xl border border-blue-100 bg-white/50 hover:bg-white text-slate-600 text-sm font-medium transition-all">Apple</button>
-    </div>
-
-    <p class="mt-8 text-center text-slate-600 text-sm">
-      New to our gallery? <a href="#" class="text-blue-600 font-bold hover:underline">Sign up for free</a>
-    </p>
   </div>
-</div>
+</body>
+</html>

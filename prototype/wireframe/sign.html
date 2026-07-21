@@ -10,10 +10,107 @@
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%);
+            min-height: 100vh;
+        }
+
+        /* Top Navigation Bar - shared IceCream header */
+        header {
+            display: flex;
+            align-items: center;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .logo {
+            color: #0096fa;
+            font-weight: bold;
+            font-size: 24px;
+            margin-right: 20px;
+            text-decoration: none;
+        }
+
+        .search-bar {
+            background: #eee;
+            padding: 8px 15px;
+            border-radius: 20px;
+            flex: 0 1 400px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 14px;
+        }
+
+        .search-dropdown {
+            color: #555;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .header-right {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-premium {
+            color: #555;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        header .btn-submit {
+            background: #0096fa;
+            color: white;
+            border: none;
+            padding: 6px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            width: auto;
+            font-size: 14px;
+        }
+
+        .icon-group {
+            color: #555;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .avatar {
+            width: 30px;
+            height: 30px;
+            background: #ccc;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .signup-page {
+            min-height: calc(100vh - 49px);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            padding: 24px;
         }
 
         /* 注册框样式 */
@@ -71,6 +168,27 @@
 </head>
 <body>
 
+<header>
+    <div class="header-left">
+        <a href="#" class="logo">IceCream</a>
+        <div class="search-bar">
+            <input type="text" placeholder="Search Illustrations/Manga...">
+            <div class="search-dropdown">Illustrations / Manga ▾</div>
+        </div>
+    </div>
+    <div class="header-right">
+        <a href="#" class="btn-premium">Premium</a>
+        <button class="btn-submit">Submit ▾</button>
+        <div class="icon-group">
+            <span>✉</span>
+            <span>🔔</span>
+            <span class="avatar"></span>
+            <span>㗊</span>
+        </div>
+    </div>
+</header>
+
+<div class="signup-page">
 <div class="signup-container">
     <h2>Create Account with Google</h2>
     
@@ -104,6 +222,7 @@
 
     <button>Sign Up</button>
     <div class="footer-text">This site is protected by reCAPTCHA.</div>
+</div>
 </div>
 
 <script>

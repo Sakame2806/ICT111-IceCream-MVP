@@ -19,39 +19,96 @@
             padding-bottom: 60px;
         }
 
-        /* 顶部导航栏 */
-        .navbar {
-            height: 64px;
-            background: #ffffff;
-            border-bottom: 1px solid #e9ecef;
+        /* Top Navigation Bar - shared IceCream header */
+        .site-header {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 0 40px;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
-            z-index: 90;
+            z-index: 1000;
         }
 
-        .nav-logo {
-            font-size: 22px;
-            font-weight: 800;
-            color: #4f46e5;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-right {
+        .header-left {
             display: flex;
             align-items: center;
-            gap: 20px;
+            flex: 1;
         }
 
-        .nav-avatar {
-            width: 38px;
-            height: 38px;
+        .logo {
+            color: #0096fa;
+            font-weight: bold;
+            font-size: 24px;
+            margin-right: 20px;
+            text-decoration: none;
+        }
+
+        .search-bar {
+            background: #eee;
+            padding: 8px 15px;
+            border-radius: 20px;
+            flex: 0 1 400px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 14px;
+        }
+
+        .search-dropdown {
+            color: #555;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .header-right {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-premium {
+            color: #555;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .btn-submit {
+            background: #0096fa;
+            color: white;
+            border: none;
+            padding: 6px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .icon-group {
+            color: #555;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .avatar {
+            width: 30px;
+            height: 30px;
+            background: #ccc;
+            background-position: center;
+            background-size: cover;
             border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #4f46e5;
+            display: inline-block;
         }
 
         /* 个人主页头部 (Banner & 头像) */
@@ -340,12 +397,25 @@
 <body>
 
     <!-- 顶部导航 -->
-    <nav class="navbar">
-        <div class="nav-logo">ARTSPACE</div>
-        <div class="nav-right">
-            <img class="nav-avatar" id="navAvatar" src="https://picsum.photos/150/150?random=11" alt="用户头像">
+    <header class="site-header">
+        <div class="header-left">
+            <a href="#" class="logo">IceCream</a>
+            <div class="search-bar">
+                <input type="text" placeholder="Search Illustrations/Manga...">
+                <div class="search-dropdown">Illustrations / Manga ▾</div>
+            </div>
         </div>
-    </nav>
+        <div class="header-right">
+            <a href="#" class="btn-premium">Premium</a>
+            <button class="btn-submit">Submit ▾</button>
+            <div class="icon-group">
+                <span>✉</span>
+                <span>🔔</span>
+                <span class="avatar" id="headerAvatar"></span>
+                <span>㗊</span>
+            </div>
+        </div>
+    </header>
 
     <!-- 个人主页头部区 -->
     <header class="profile-header">
@@ -451,6 +521,12 @@
     <!-- 交互逻辑控制 -->
     <script>
         const modal = document.getElementById('editModal');
+        const displayAvatar = document.getElementById('displayAvatar');
+        const headerAvatar = document.getElementById('headerAvatar');
+
+        function syncHeaderAvatar() {
+            headerAvatar.style.backgroundImage = `url("${displayAvatar.src}")`;
+        }
         
         // 打开修改弹窗并回填现有数据
         function openEditModal() {
@@ -476,6 +552,7 @@
             if(newName.trim()) document.getElementById('displayName').innerText = newName;
             if(newTitle.trim()) document.getElementById('displayTitle').innerText = newTitle;
             if(newBio.trim()) document.getElementById('displayBio').innerText = newBio;
+            syncHeaderAvatar();
 
             // 关闭弹窗
             closeEditModal();
@@ -487,6 +564,8 @@
                 closeEditModal();
             }
         });
+
+        syncHeaderAvatar();
     </script>
 </body>
 </html>
