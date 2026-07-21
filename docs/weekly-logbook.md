@@ -239,3 +239,21 @@ The IceCream prototype is safe to continue building **with mitigation**. The tea
 - Replace Pixiv branding and external placeholder artwork with IceCream-branded or properly credited assets.
 - Update prototype forms to reduce unnecessary data collection and improve validation messages.
 - Continue implementing UX improvements while following the updated responsible design requirements.
+
+## Lab 10: Prototype Refinement and Risk Mitigation
+
+### What We Completed
+1. Updated the interactive HTML/CSS prototype screens (`homepage.html`, `sign.html`, `Upload.html`, `Artwork.html`, `analyze.html`, `persionview.html`).
+2. Implemented the UX redesigns identified in the Lab 08 MVP data analysis.
+3. Applied mitigation actions from the Lab 09 responsible design review, such as removing unnecessary data collection fields (e.g., gender, DOB).
+4. Replaced external placeholder assets with properly credited or IceCream-branded materials.
+
+### What We Learned
+1. How to translate legal, privacy, and ethical compliance requirements directly into UI design choices.
+2. The value of iterative prototyping to seamlessly integrate UX improvements with security and data protection mitigations.
+
+### Evidence of Work
+- Updated Interactive Prototype Files: [prototype/wireframe/](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/prototype/wireframe/)
+
+### Plan for Next Week
+- Finalize the prototype testing and prepare for backend development or final showcase.
