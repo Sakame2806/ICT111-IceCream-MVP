@@ -5,7 +5,7 @@ Use this file to prove that your prototype implementation is connected to `syste
 
 | Req ID | Required Functionality | Prototype Screen/Module | Current Status | Evidence | Next Fix Needed |
 |---|---|---|---|---|---|
-| FR-01 | Homepage or landing screen | Homepage / gallery entry screen | Working Draft | `prototype/wireframe/homepage.html` | Continue replacing any remaining placeholder/Pixiv-style content with IceCream branding. |
+| FR-01 | Homepage or landing screen | Homepage / gallery entry screen | In Progress | `prototype/wireframe/homepage.html` | Continue replacing any remaining placeholder/Pixiv-style content with IceCream branding. |
 | FR-02 | Primary user pathway | Login/sign-up -> homepage/gallery -> upload -> artwork detail/comment -> profile/dashboard | In Progress | `login.html`, `Sign-Up.html`, `homepage.html`, `Upload.html`, `Artwork.html`, `User-Profile.html`, `User-Dashboard.html` | Add clearer navigation links between screens for a fully clickable journey. |
 | FR-03 | User input or data submission | Upload form and comment input | Working Draft | `prototype/wireframe/Upload.html`, `prototype/wireframe/Artwork.html` comment field | Add ownership confirmation, privacy warning, required validation, and safer free-text handling. |
 | FR-04 | Data storage or simulated storage | Mock CSV data records | Working Draft | `data/Users_records.csv`, `data/artworks_records.csv`, `data/comments_records.csv` | Connect screens to simulated records or document how CSV data maps to UI. |
