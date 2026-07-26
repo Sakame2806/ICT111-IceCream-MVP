@@ -257,3 +257,22 @@ The IceCream prototype is safe to continue building **with mitigation**. The tea
 
 ### Plan for Next Week
 - Finalize the prototype testing and prepare for backend development or final showcase.
+
+## Lab 11: Full Prototype Flow Testing
+
+### What We Completed
+1. Created `/docs/prototype-testing-notes.md` to document the testing process.
+2. Tested the main user journey, covering the homepage, input submission, record view, search/filter, detail view, status/admin update, and dashboard metrics.
+3. Recorded six comprehensive test cases including expected results, actual results, and fixes or next actions based on the prototype's performance.
+
+### What We Learned
+1. How to systematically test a prototype against the defined user journey.
+2. Identifying areas where user feedback (like loading states) and data refresh logic need improvement.
+3. Recognizing minor bugs (e.g., date filter warnings) that need to be addressed before finalization.
+
+### Evidence of Work
+- Prototype Testing Notes: [prototype-testing-notes.md](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/docs/prototype-testing-notes.md)
+
+### Plan for Next Week
+- Implement the fixes and next actions identified during testing (e.g., optimizing form submission feedback, fixing filter logic, and adding empty states).
+- Prepare for backend integration and final MVP presentation.

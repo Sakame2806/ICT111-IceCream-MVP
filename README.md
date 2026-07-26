@@ -42,6 +42,7 @@ Explain the purpose of each folder.
 | Lab 8 | MVP Data Analysis | Analyzed user testing data and documented MVP decisions | Complete |
 | Lab 9 | Legal, Ethical, IP, Privacy & Security | Created risk registers, privacy, and security checklists | Complete |
 | Lab 10 | Prototype Refinement | Updated interactive wireframes to implement UX improvements and risk mitigations | Complete |
+| Lab 11 | Full Prototype Flow Testing | Tested user journey and created prototype-testing-notes.md | Complete |
 ## Current Status
  Created the Github Repository and Exchange ideas with each other.(Lab 1)
  We reviewed six possible IT opportunities, scored them using NUF, and selected idea 5 as our semester project idea.(lab 2)
@@ -50,5 +51,6 @@ Explain the purpose of each folder.
  We analyzed the MVP validation data, documented actionable insights, and established a strategic roadmap focusing on UX optimization. (Lab 8)
  We conducted a comprehensive review of legal, ethical, privacy, IP, and security risks, creating necessary mitigation plans. (Lab 9)
  We updated our interactive HTML/CSS prototypes to apply risk mitigations and UX redesigns. (Lab 10)
+ We tested the full prototype flow, including the main user journey and dashboard metrics, documenting test cases and results. (Lab 11)
 ## Next Step
-Prepare the refined interactive prototype for final testing and backend integration.
+Implement fixes identified during prototype testing and prepare for backend integration.
