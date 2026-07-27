@@ -43,6 +43,7 @@ Explain the purpose of each folder.
 | Lab 9 | Legal, Ethical, IP, Privacy & Security | Created risk registers, privacy, and security checklists | Complete |
 | Lab 10 | Prototype Refinement | Updated interactive wireframes to implement UX improvements and risk mitigations | Complete |
 | Lab 11 | Full Prototype Flow Testing | Tested user journey and created prototype-testing-notes.md | Complete |
+| Lab 12 | Digital Go-to-Market Plan & Metrics | Created go-to-market plan, marketing messages, and acquisition metrics | Complete |
 ## Current Status
  Created the Github Repository and Exchange ideas with each other.(Lab 1)
  We reviewed six possible IT opportunities, scored them using NUF, and selected idea 5 as our semester project idea.(lab 2)
@@ -52,5 +53,6 @@ Explain the purpose of each folder.
  We conducted a comprehensive review of legal, ethical, privacy, IP, and security risks, creating necessary mitigation plans. (Lab 9)
  We updated our interactive HTML/CSS prototypes to apply risk mitigations and UX redesigns. (Lab 10)
  We tested the full prototype flow, including the main user journey and dashboard metrics, documenting test cases and results. (Lab 11)
+ We developed our digital go-to-market strategy, defining our target early users, outreach channels, marketing messages, and acquisition metrics. (Lab 12)
 ## Next Step
-Implement fixes identified during prototype testing and prepare for backend integration.
+Finalize the landing page prototype, implement the mock tracking methods, and prepare for the final MVP pitch presentation.

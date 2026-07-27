@@ -258,21 +258,72 @@ The IceCream prototype is safe to continue building **with mitigation**. The tea
 ### Plan for Next Week
 - Finalize the prototype testing and prepare for backend development or final showcase.
 
-## Lab 11: Full Prototype Flow Testing
+## Lab 11: MVP Implementation Sprint 2 and Startup Metrics
 
-### What We Completed
-1. Created `/docs/prototype-testing-notes.md` to document the testing process.
-2. Tested the main user journey, covering the homepage, input submission, record view, search/filter, detail view, status/admin update, and dashboard metrics.
-3. Recorded six comprehensive test cases including expected results, actual results, and fixes or next actions based on the prototype's performance.
+### Lab Topic
+MVP Implementation Sprint 2 and Startup Metrics
 
-### What We Learned
-1. How to systematically test a prototype against the defined user journey.
-2. Identifying areas where user feedback (like loading states) and data refresh logic need improvement.
-3. Recognizing minor bugs (e.g., date filter warnings) that need to be addressed before finalization.
+### Group Case
+IceCream - Dedicated Campus Community for Digital Artists
 
-### Evidence of Work
-- Prototype Testing Notes: [prototype-testing-notes.md](file:///Users/kyawnaingsoe/Desktop/ICT111-IceCream-MVP/docs/prototype-testing-notes.md)
+### Work Completed Today
+- Created `prototype-testing-notes.md` to document the full testing process.
+- Tested the main user journey, covering the homepage, input submission, search/filter, and dashboard metrics.
+- Recorded six comprehensive test cases including expected results, actual results, and fixes.
+- Documented startup metrics based on prototype performance.
 
-### Plan for Next Week
-- Implement the fixes and next actions identified during testing (e.g., optimizing form submission feedback, fixing filter logic, and adding empty states).
-- Prepare for backend integration and final MVP presentation.
+### Member Contributions
+| Member Name | Contribution | File/Feature Updated | GitHub Evidence |
+|---|---|---|---|
+| Gwyndolin | Tested user journey & documented metrics | docs/prototype-testing-notes.md | GitHub commit |
+| Kyaw Naing Soe | Documented test cases & identified bug fixes | docs/prototype-testing-notes.md | GitHub commit |
+| RunluQing | UI/UX testing & loading states feedback | docs/prototype-testing-notes.md | GitHub commit |
+
+### Requirements Addressed
+FR-01 (Landing Page), FR-03 (Artwork Upload Form), FR-06 (Fandom & Style Filters), FR-10 (Input Validations).
+
+### Metrics Added
+Tested user journey completion rates, identified UX friction points (e.g., loading states, filter bugs), and documented startup success metrics.
+
+### Problems Found
+Identified missing loading states for user feedback, issues with data refresh logic, and minor bugs such as date filter warnings that need addressing before finalization.
+
+### Next Action Before Lab 12
+Implement the fixes and next actions identified during testing (e.g., optimizing form submission feedback, fixing filter logic, and adding empty states) and prepare for the final MVP presentation.
+
+## Lab 12: Digital Go-to-Market Plan and Metrics
+
+### Group Name
+Icecream
+
+### Project Title
+IceCream
+
+### Lab Date
+2026-07-28
+
+### Work Completed Today
+
+| Member Name | Contribution | File/Commit Evidence |
+| --- | --- | --- |
+| Gwyndolin | Created GTM plan and identified channels | docs/go-to-market-plan.md |
+| Kyaw Naing Soe | Drafted acquisition metrics | docs/acquisition-metrics.md |
+| RunluQing | Wrote marketing messages for channels | docs/marketing-message.md |
+
+### Landing Page Progress
+Created a landing page strategy and integrated the value proposition: "A dedicated community platform for campus artists to share artwork, discover peers, and receive structured, constructive critiques."
+
+### Go-to-Market Progress
+Target Users: Campus digital artists and hobbyist creators.
+Channels: Student Art Clubs, Instagram & TikTok, Class Chats.
+Messages: Drafted one-sentence marketing messages and channel-specific CTAs focusing on structured feedback.
+
+### Metrics Plan
+Defined 5 acquisition metrics (Landing page views, Sign-up button clicks, Prototype uploads, Feedback responses, Interest conversion).
+Methods: Manual counts, spreadsheet tracking, analytics mockup, and prototype logs.
+
+### Problems Encountered
+Condensing the marketing messages to be clear within a 5-second read while still explaining the unique "structured critique" feature.
+
+### Next Action Before Lab 13
+Finalize the landing page prototype, implement the mock tracking methods, and prepare the final pitch.
