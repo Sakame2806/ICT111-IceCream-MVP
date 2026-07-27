@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - IceCream</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            color: #1f2937;
+            background: #f6f8fb;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 8px 20px;
+            border-bottom: 1px solid #e5e7eb;
+            background: rgba(255,255,255,.92);
+            backdrop-filter: blur(10px);
+        }
+        .header-left { display: flex; align-items: center; flex: 1; }
+        .logo {
+            margin-right: 20px;
+            color: #0096fa;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            flex: 0 1 430px;
+            padding: 8px 14px;
+            border-radius: 20px;
+            background: #f0f0f0;
+        }
+        .search-bar input {
+            width: 100%;
+            border: 0;
+            outline: 0;
+            background: transparent;
+        }
+        .search-dropdown { color: #6b7280; font-size: 12px; white-space: nowrap; }
+        .header-right, .icon-group { display: flex; align-items: center; gap: 15px; }
+        .header-right { margin-left: auto; }
+        .submit-btn {
+            padding: 7px 15px;
+            border-radius: 20px;
+            color: #fff;
+            background: #0096fa;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .avatar {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #cbd5e1;
+        }
+        main { max-width: 1180px; margin: 32px auto; padding: 0 24px; }
+        h1 { margin: 0 0 20px; font-size: 28px; }
+        .search-panel {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 150px 110px;
+            gap: 12px;
+            padding: 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            background: #fff;
+            box-shadow: 0 4px 16px rgba(15,23,42,.05);
+        }
+        .search-panel input, .search-panel select {
+            width: 100%;
+            padding: 11px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font: inherit;
+            background: #fff;
+        }
+        .search-panel button {
+            border: 0;
+            border-radius: 8px;
+            color: #fff;
+            background: #0096fa;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .summary { min-height: 24px; margin: 24px 0 16px; color: #6b7280; }
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 22px;
+        }
+        .result-card {
+            overflow: hidden;
+            border-radius: 12px;
+            color: inherit;
+            background: #fff;
+            text-decoration: none;
+            box-shadow: 0 3px 12px rgba(15,23,42,.08);
+            transition: transform .2s, box-shadow .2s;
+        }
+        .result-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 24px rgba(15,23,42,.12);
+        }
+        .result-image { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; background: #eee; }
+        .result-info { padding: 14px; }
+        .result-title { overflow: hidden; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+        .result-author { margin-top: 5px; color: #6b7280; font-size: 13px; }
+        .result-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+        .result-tag {
+            padding: 3px 7px;
+            border-radius: 5px;
+            color: #2563eb;
+            background: #eff6ff;
+            font-size: 11px;
+        }
+        .result-meta { margin-top: 10px; color: #9ca3af; font-size: 12px; }
+        .message {
+            grid-column: 1 / -1;
+            padding: 50px 20px;
+            border: 1px dashed #cbd5e1;
+            border-radius: 12px;
+            color: #64748b;
+            background: #fff;
+            text-align: center;
+        }
+        @media (max-width: 680px) {
+            .search-bar { display: none; }
+            .search-panel { grid-template-columns: 1fr; }
+            .search-panel button { padding: 11px; }
+            .header-right .premium { display: none; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="header-left">
+        <a href="homepage.html" class="logo">IceCream</a>
+        <div class="search-bar">
+            <input type="text" placeholder="Search artwork titles or tags">
+            <span class="search-dropdown">Titles / Tags</span>
+        </div>
+    </div>
+    <div class="header-right">
+        <span class="premium">Premium</span>
+        <a href="Upload.html" class="submit-btn">Submit</a>
+        <div class="icon-group">
+            <span>✉</span><span>🔔</span><span class="avatar"></span><span>㗊</span>
+        </div>
+    </div>
+</header>
+
+<main>
+    <h1>检索作品</h1>
+    <form id="search-form" class="search-panel">
+        <input id="query" type="search" maxlength="100" placeholder="输入作品标题或标签" required>
+        <select id="mode" aria-label="Search mode">
+            <option value="all">标题或标签</option>
+            <option value="title">仅作品标题</option>
+            <option value="tag">仅作品标签</option>
+        </select>
+        <button type="submit">Search</button>
+    </form>
+    <div id="summary" class="summary"></div>
+    <div id="results" class="results-grid"></div>
+</main>
+
+<script>
+    const searchForm = document.getElementById('search-form');
+    const queryInput = document.getElementById('query');
+    const modeSelect = document.getElementById('mode');
+    const summary = document.getElementById('summary');
+    const results = document.getElementById('results');
+
+    function showMessage(text) {
+        results.innerHTML = '';
+        const message = document.createElement('div');
+        message.className = 'message';
+        message.textContent = text;
+        results.appendChild(message);
+    }
+
+    function createResultCard(artwork) {
+        const card = document.createElement('a');
+        card.className = 'result-card';
+        card.href = `Artwork.html?art_id=${encodeURIComponent(artwork.art_id)}`;
+        const image = document.createElement('img');
+        image.className = 'result-image';
+        image.src = artwork.image_url;
+        image.alt = artwork.title;
+        image.loading = 'lazy';
+        const info = document.createElement('div');
+        info.className = 'result-info';
+        const title = document.createElement('div');
+        title.className = 'result-title';
+        title.textContent = artwork.title;
+        const author = document.createElement('div');
+        author.className = 'result-author';
+        author.textContent = artwork.artist_nickname;
+        const tags = document.createElement('div');
+        tags.className = 'result-tags';
+        artwork.tags.forEach(tagText => {
+            const tag = document.createElement('span');
+            tag.className = 'result-tag';
+            tag.textContent = `#${tagText}`;
+            tags.appendChild(tag);
+        });
+        const meta = document.createElement('div');
+        meta.className = 'result-meta';
+        meta.textContent = `♡ ${artwork.like_count} · ${artwork.art_id}`;
+        info.append(title, author, tags, meta);
+        card.append(image, info);
+        return card;
+    }
+
+    async function runSearch(query, mode) {
+        queryInput.value = query;
+        modeSelect.value = mode;
+        if (!query) {
+            summary.textContent = '';
+            showMessage('输入作品标题或标签开始检索。');
+            return;
+        }
+        summary.textContent = '正在检索……';
+        showMessage('Loading…');
+        try {
+            const response = await fetch(
+                `/api/search?q=${encodeURIComponent(query)}&mode=${encodeURIComponent(mode)}`,
+                { cache: 'no-store' }
+            );
+            const result = await response.json();
+            if (!response.ok) throw new Error(result.error || '检索失败。');
+            summary.textContent = `“${query}” 找到 ${result.results.length} 件作品`;
+            results.innerHTML = '';
+            if (!result.results.length) {
+                showMessage('没有找到符合条件的作品。请尝试较短的标题或标签关键词。');
+                return;
+            }
+            result.results.forEach(artwork => results.appendChild(createResultCard(artwork)));
+        } catch (error) {
+            summary.textContent = '';
+            showMessage(error.message);
+        }
+    }
+
+    searchForm.addEventListener('submit', event => {
+        event.preventDefault();
+        const query = queryInput.value.trim();
+        const mode = modeSelect.value;
+        history.pushState(null, '', `Search.html?q=${encodeURIComponent(query)}&mode=${mode}`);
+        runSearch(query, mode);
+    });
+
+    const parameters = new URLSearchParams(window.location.search);
+    runSearch(parameters.get('q') || '', parameters.get('mode') || 'all');
+</script>
+<script src="search-navigation.js"></script>
+<script src="auth-navigation.js"></script>
+</body>
+</html>

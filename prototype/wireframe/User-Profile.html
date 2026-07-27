@@ -288,6 +288,25 @@
             font-weight: 600;
         }
 
+        .art-status {
+            color: #6b7280;
+        }
+
+        .gallery-message {
+            grid-column: 1 / -1;
+            padding: 48px 24px;
+            border: 1px dashed #d1d5db;
+            border-radius: 12px;
+            color: #6b7280;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .gallery-message a {
+            color: #4f46e5;
+            font-weight: 600;
+        }
+
         /* 弹窗样式 (修改个人信息) */
         .modal-overlay {
             position: fixed;
@@ -399,7 +418,7 @@
     <!-- 顶部导航 -->
     <header class="site-header">
         <div class="header-left">
-            <a href="#" class="logo">IceCream</a>
+            <a href="homepage.html" class="logo">IceCream</a>
             <div class="search-bar">
                 <input type="text" placeholder="Search Illustrations/Manga...">
                 <div class="search-dropdown">Illustrations / Manga ▾</div>
@@ -407,7 +426,7 @@
         </div>
         <div class="header-right">
             <a href="#" class="btn-premium">Premium</a>
-            <button class="btn-submit">Submit ▾</button>
+            <button class="btn-submit" type="button" onclick="location.href='Upload.html'">Submit ▾</button>
             <div class="icon-group">
                 <span>✉</span>
                 <span>🔔</span>
@@ -427,67 +446,21 @@
             <img class="main-avatar" id="displayAvatar" src="https://picsum.photos/150/150?random=11" alt="主头像">
             <div class="user-details">
                 <div class="user-name-row">
-                    <h1 class="user-name" id="displayName">Evelyn Vance</h1>
+                    <h1 class="user-name" id="displayName">IceCream Artist</h1>
                     <button class="btn-edit" onclick="openEditModal()">修改个人信息</button>
                 </div>
-                <div class="user-title" id="displayTitle">资深概念设计师 / 插画师</div>
-                <p class="user-bio" id="displayBio">专注于赛博朋克美学与科幻场景美术。拥有5年游戏行业美术研发经验，擅长运用独特的光影色彩编织超现实梦境。</p>
+                <div class="user-title" id="displayTitle">IceCream Artist</div>
+                <p class="user-bio" id="displayBio">Sharing original artwork with the IceCream community.</p>
             </div>
         </div>
     </header>
 
     <!-- 主体内容：个人推荐作品 -->
     <main class="content-container">
-        <h2 class="section-title">个人推荐作品</h2>
+        <h2 class="section-title">我的作品</h2>
         
-        <div class="art-grid">
-            <!-- 作品卡片 1 -->
-            <div class="art-card">
-                <img class="art-cover" src="https://picsum.photos/500/400?random=1" alt="作品">
-                <div class="art-info">
-                    <div class="art-title">霓虹雨夜：复古未来纪元</div>
-                    <div class="art-meta">
-                        <span class="art-tag">数码插画</span>
-                        <span>❤️ 1,240</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 作品卡片 2 -->
-            <div class="art-card">
-                <img class="art-cover" src="https://picsum.photos/500/400?random=2" alt="作品">
-                <div class="art-info">
-                    <div class="art-title">荒原回响 - 概念场景设计</div>
-                    <div class="art-meta">
-                        <span class="art-tag">场景美术</span>
-                        <span>❤️ 986</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 作品卡片 3 -->
-            <div class="art-card">
-                <img class="art-cover" src="https://picsum.photos/500/400?random=3" alt="作品">
-                <div class="art-info">
-                    <div class="art-title">仿生人的白日梦想</div>
-                    <div class="art-meta">
-                        <span class="art-tag">角色设计</span>
-                        <span>❤️ 2,150</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 作品卡片 4 -->
-            <div class="art-card">
-                <img class="art-cover" src="https://picsum.photos/500/400?random=4" alt="作品">
-                <div class="art-info">
-                    <div class="art-title">星穹铁道边缘的信使</div>
-                    <div class="art-meta">
-                        <span class="art-tag">数码插画</span>
-                        <span>❤️ 854</span>
-                    </div>
-                </div>
-            </div>
+        <div class="art-grid" id="user-art-grid">
+            <div class="gallery-message">正在加载作品……</div>
         </div>
     </main>
 
@@ -523,6 +496,98 @@
         const modal = document.getElementById('editModal');
         const displayAvatar = document.getElementById('displayAvatar');
         const headerAvatar = document.getElementById('headerAvatar');
+        const artGrid = document.getElementById('user-art-grid');
+
+        function getCurrentUser() {
+            try {
+                return JSON.parse(sessionStorage.getItem('icecream_user'));
+            } catch {
+                return null;
+            }
+        }
+
+        const currentUser = getCurrentUser();
+        if (!currentUser?.user_id) {
+            window.location.replace('login.html');
+        } else {
+            document.getElementById('displayName').textContent = currentUser.nickname;
+            document.title = `${currentUser.nickname} - IceCream`;
+            loadUserArtworks(currentUser.user_id);
+        }
+
+        function createArtworkCard(artwork, imageUrl, imageIndex) {
+            const card = document.createElement('article');
+            card.className = 'art-card';
+            card.setAttribute('role', 'link');
+            card.setAttribute('tabindex', '0');
+            card.addEventListener('click', () => {
+                window.location.href = `Artwork.html?art_id=${encodeURIComponent(artwork.art_id)}`;
+            });
+            card.addEventListener('keydown', event => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    card.click();
+                }
+            });
+
+            const image = document.createElement('img');
+            image.className = 'art-cover';
+            image.src = imageUrl;
+            image.alt = artwork.title;
+            image.loading = 'lazy';
+
+            const info = document.createElement('div');
+            info.className = 'art-info';
+            const title = document.createElement('div');
+            title.className = 'art-title';
+            title.textContent = artwork.image_urls.length > 1
+                ? `${artwork.title} (${imageIndex + 1}/${artwork.image_urls.length})`
+                : artwork.title;
+
+            const meta = document.createElement('div');
+            meta.className = 'art-meta';
+            const tag = document.createElement('span');
+            tag.className = 'art-tag';
+            tag.textContent = artwork.tags[0] || 'artwork';
+            const statistics = document.createElement('span');
+            statistics.textContent = `❤️ ${artwork.like_count}  💬 ${artwork.comment_count}`;
+            meta.append(tag, statistics);
+
+            const status = document.createElement('div');
+            status.className = 'art-meta art-status';
+            status.textContent = `${artwork.art_id} · ${artwork.status}`;
+            info.append(title, meta, status);
+            card.append(image, info);
+            return card;
+        }
+
+        async function loadUserArtworks(userId) {
+            try {
+                const response = await fetch(`/api/artworks?user_id=${encodeURIComponent(userId)}`);
+                const result = await response.json();
+                if (!response.ok) {
+                    throw new Error(result.error || 'Unable to load artworks.');
+                }
+
+                artGrid.innerHTML = '';
+                let imageCount = 0;
+                result.artworks.forEach(artwork => {
+                    artwork.image_urls.forEach((imageUrl, index) => {
+                        artGrid.appendChild(createArtworkCard(artwork, imageUrl, index));
+                        imageCount += 1;
+                    });
+                });
+                if (imageCount === 0) {
+                    artGrid.innerHTML = '<div class="gallery-message">你还没有上传作品。<a href="Upload.html">上传第一幅作品</a></div>';
+                }
+            } catch (error) {
+                artGrid.textContent = '';
+                const message = document.createElement('div');
+                message.className = 'gallery-message';
+                message.textContent = error.message;
+                artGrid.appendChild(message);
+            }
+        }
 
         function syncHeaderAvatar() {
             headerAvatar.style.backgroundImage = `url("${displayAvatar.src}")`;
@@ -567,5 +632,7 @@
 
         syncHeaderAvatar();
     </script>
+    <script src="search-navigation.js"></script>
+    <script src="auth-navigation.js"></script>
 </body>
 </html>

@@ -187,7 +187,7 @@
 
 <header>
     <div class="header-left">
-        <a href="#" class="logo">IceCream</a>
+        <a href="homepage.html" class="logo">IceCream</a>
         <div class="search-bar">
             <input type="text" placeholder="Search Illustrations/Manga...">
             <div class="search-dropdown">Illustrations / Manga ▾</div>
@@ -195,7 +195,7 @@
     </div>
     <div class="header-right">
         <a href="#" class="btn-premium">Premium</a>
-        <button class="btn-submit">Submit ▾</button>
+        <button class="btn-submit" type="button" onclick="location.href='Upload.html'">Submit ▾</button>
         <div class="icon-group">
             <span>✉</span>
             <span>🔔</span>
@@ -314,6 +314,7 @@
 
         const nickname = document.getElementById('nickname').value.trim();
         const password = document.getElementById('password').value;
+        const selectedGender = document.querySelector('input[name="gender"]:checked')?.value;
         const confirmPassword = document.getElementById('confirm-password').value;
 
         if (password !== confirmPassword) {
@@ -336,7 +337,7 @@
             const response = await fetch('/api/signup', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ nickname, password })
+                body: JSON.stringify({ nickname, password, gender: selectedGender})
             });
             const result = await response.json();
 
@@ -359,5 +360,7 @@
     });
 </script>
 
+<script src="search-navigation.js"></script>
+<script src="auth-navigation.js"></script>
 </body>
 </html>

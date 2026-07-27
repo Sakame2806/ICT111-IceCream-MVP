@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixiv Artwork Details - Replica</title>
+    <title>Artwork Details - IceCream</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -103,6 +103,43 @@
             border-radius: 50%;
             display: inline-block;
         }
+
+        .artwork-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .artwork-image-frame {
+            min-height: 280px;
+            padding: 16px;
+            background: #18181b;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .artwork-image-frame img {
+            display: block;
+            max-width: 100%;
+            max-height: none;
+            object-fit: contain;
+        }
+
+        .page-message {
+            padding: 48px 24px;
+            color: #6b7280;
+            background: white;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .like-active {
+            color: white !important;
+            background: #ef4444 !important;
+        }
     </style>
 </head>
 <body>
@@ -110,7 +147,7 @@
         <!-- 顶部导航栏 -->
         <header>
             <div class="header-left">
-                <a href="#" class="logo">IceCream</a>
+                <a href="homepage.html" class="logo">IceCream</a>
                 <div class="search-bar">
                     <input type="text" placeholder="Search Illustrations/Manga">
                     <div class="search-dropdown">Illustrations / Manga ▾</div>
@@ -118,7 +155,7 @@
             </div>
             <div class="header-right">
                 <a href="#" class="btn-premium">Join IceCream Premium</a>
-                <button class="btn-submit">Submit ▾</button>
+                <button class="btn-submit" type="button" onclick="location.href='Upload.html'">Submit ▾</button>
                 <div class="icon-group">
                     <span>✉</span>
                     <span>🔔</span>
@@ -143,20 +180,22 @@
     <main class="max-w-7xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         <div class="lg:col-span-2 space-y-4">
-            
-            <div class="bg-zinc-900 rounded-lg overflow-hidden flex items-center justify-center min-h-[500px] shadow-sm relative group">
-                <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1000&q=80" alt="Main Artwork" class="max-w-full max-h-[750px] object-contain">
-                
-                <div class="absolute bottom-3 left-3 bg-black/70 text-white text-xs px-3 py-1.5 rounded pointer-events-none backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
-                    Scenario: A green long-haired anime girl wearing a yellow and green dress, sitting in a wooden boat, surrounded by mysterious purple tentacles.
-                </div>
+
+            <section class="bg-white rounded-lg p-5 shadow-sm">
+                <h1 id="artwork-title" class="text-2xl font-bold text-gray-900">Loading artwork…</h1>
+                <p id="artwork-description" class="mt-2 text-gray-600 whitespace-pre-wrap"></p>
+                <p id="artwork-status" class="mt-3 text-xs text-gray-400"></p>
+            </section>
+
+            <div id="artwork-images" class="artwork-stack">
+                <div class="page-message">Loading images…</div>
             </div>
 
             <div class="bg-white rounded-lg p-4 shadow-sm flex flex-wrap items-center justify-between gap-4">
                 <div class="flex items-center space-x-2">
-                    <button class="bg-red-50 hover:bg-red-100 text-red-500 font-medium px-4 py-2 rounded-full flex items-center space-x-1.5 transition-colors">
+                    <button id="like-button" type="button" class="bg-red-50 hover:bg-red-100 text-red-500 font-medium px-4 py-2 rounded-full flex items-center space-x-1.5 transition-colors" disabled>
                         <i class="fas fa-heart"></i>
-                        <span>Like (2.4k)</span>
+                        <span id="like-label">Like (0)</span>
                     </button>
                     <button class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium px-4 py-2 rounded-full flex items-center space-x-1.5 transition-colors">
                         <i class="far fa-bookmark"></i>
@@ -177,29 +216,17 @@
                     <i class="fas fa-tags text-blue-500"></i>
                     <span>Tags</span>
                 </div>
-                <div class="flex flex-wrap gap-2 pt-1">
-                    <a href="#" class="bg-blue-50 hover:bg-blue-100 text-blue-600 text-xs px-3 py-1.5 rounded-md font-medium transition-colors">#original</a>
-                    <a href="#" class="bg-blue-50 hover:bg-blue-100 text-blue-600 text-xs px-3 py-1.5 rounded-md font-medium transition-colors">#anime_girl</a>
-                    <a href="#" class="bg-blue-50 hover:bg-blue-100 text-blue-600 text-xs px-3 py-1.5 rounded-md font-medium transition-colors">#fantasy</a>
-                    <a href="#" class="bg-blue-50 hover:bg-blue-100 text-blue-600 text-xs px-3 py-1.5 rounded-md font-medium transition-colors">#green_hair</a>
-                    <a href="#" class="bg-blue-50 hover:bg-blue-100 text-blue-600 text-xs px-3 py-1.5 rounded-md font-medium transition-colors">#tentacles</a>
-                    <button class="bg-gray-100 hover:bg-gray-200 text-gray-600 text-xs px-3 py-1.5 rounded-md font-medium transition-colors">
+                <div id="tag-list" class="flex flex-wrap gap-2 pt-1">
+                    <span class="text-xs text-gray-400">Loading tags…</span>
+                    <button id="add-tag-button" type="button" class="hidden bg-gray-100 hover:bg-gray-200 text-gray-600 text-xs px-3 py-1.5 rounded-md font-medium transition-colors">
                         <i class="fas fa-plus mr-1"></i>Add Tag
                     </button>
                 </div>
             </div>
 
             <div class="bg-white rounded-lg p-4 shadow-sm space-y-4">
-                <h3 class="font-bold text-gray-800 flex items-center"><i class="far fa-comment mr-2"></i> Comments (12)</h3>
-                <div class="flex space-x-3">
-                    <div class="w-9 h-9 rounded-full overflow-hidden flex-shrink-0">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex-1 relative">
-                        <input type="text" placeholder="Leave a constructive comment..." class="w-full bg-gray-100 border border-gray-200 rounded-lg px-4 py-2 pr-12 text-sm outline-none focus:border-blue-400 focus:bg-white transition-all">
-                        <button class="absolute right-3 top-2 text-blue-500 text-sm font-medium">Send</button>
-                    </div>
-                </div>
+                <h3 class="font-bold text-gray-800 flex items-center"><i class="far fa-comment mr-2"></i> <span id="comment-heading">Comments (0)</span></h3>
+                <p class="text-sm text-gray-400">Comment functionality will be added in a future version.</p>
             </div>
 
         </div>
@@ -213,8 +240,8 @@
                             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Artist Avatar" class="w-full h-full object-cover">
                         </div>
                         <div>
-                            <h2 class="font-bold text-gray-800 text-lg hover:text-blue-600 cursor-pointer">Andy Love</h2>
-                            <p class="text-xs text-gray-400">User ID: 9481023</p>
+                            <h2 id="artist-name" class="font-bold text-gray-800 text-lg">IceCream Artist</h2>
+                            <p id="artist-id" class="text-xs text-gray-400">User ID: —</p>
                         </div>
                     </div>
                     
@@ -263,5 +290,171 @@
         </div>
     </main>
 
+<script>
+    const artworkImages = document.getElementById('artwork-images');
+    const likeButton = document.getElementById('like-button');
+    const likeLabel = document.getElementById('like-label');
+    const tagList = document.getElementById('tag-list');
+    const addTagButton = document.getElementById('add-tag-button');
+    let currentArtwork = null;
+
+    function getCurrentUser() {
+        try {
+            return JSON.parse(sessionStorage.getItem('icecream_user'));
+        } catch {
+            return null;
+        }
+    }
+
+    function showArtworkError(message) {
+        document.getElementById('artwork-title').textContent = 'Unable to display artwork';
+        document.getElementById('artwork-description').textContent = message;
+        artworkImages.innerHTML = '';
+        const errorBox = document.createElement('div');
+        errorBox.className = 'page-message';
+        errorBox.textContent = message;
+        artworkImages.appendChild(errorBox);
+    }
+
+    function renderImages(artwork) {
+        artworkImages.innerHTML = '';
+        if (!artwork.image_urls.length) {
+            artworkImages.innerHTML = '<div class="page-message">This artwork has no available images.</div>';
+            return;
+        }
+        artwork.image_urls.forEach((imageUrl, index) => {
+            const frame = document.createElement('figure');
+            frame.className = 'artwork-image-frame shadow-sm';
+            const image = document.createElement('img');
+            image.src = imageUrl;
+            image.alt = artwork.image_urls.length > 1
+                ? `${artwork.title}, image ${index + 1} of ${artwork.image_urls.length}`
+                : artwork.title;
+            image.loading = index === 0 ? 'eager' : 'lazy';
+            frame.appendChild(image);
+            artworkImages.appendChild(frame);
+        });
+    }
+
+    function renderTags(tags) {
+        tagList.innerHTML = '';
+        tags.forEach(tagText => {
+            const tag = document.createElement('a');
+            tag.href = `homepage.html?tag=${encodeURIComponent(tagText)}`;
+            tag.className = 'bg-blue-50 hover:bg-blue-100 text-blue-600 text-xs px-3 py-1.5 rounded-md font-medium transition-colors';
+            tag.textContent = `#${tagText}`;
+            tagList.appendChild(tag);
+        });
+        const user = getCurrentUser();
+        if (currentArtwork && user?.user_id === currentArtwork.user_id) {
+            addTagButton.classList.remove('hidden');
+            tagList.appendChild(addTagButton);
+        }
+    }
+
+    function likeStorageKey() {
+        const user = getCurrentUser();
+        return `icecream_liked_${user?.user_id || 'guest'}_${currentArtwork.art_id}`;
+    }
+
+    function renderLikeState() {
+        const liked = localStorage.getItem(likeStorageKey()) === 'true';
+        likeButton.classList.toggle('like-active', liked);
+        likeLabel.textContent = `${liked ? 'Liked' : 'Like'} (${currentArtwork.like_count})`;
+    }
+
+    async function loadArtwork() {
+        const artId = new URLSearchParams(window.location.search).get('art_id');
+        if (!artId) {
+            showArtworkError('No artwork ID was provided.');
+            return;
+        }
+        try {
+            const response = await fetch(`/api/artworks/${encodeURIComponent(artId)}`);
+            const result = await response.json();
+            if (!response.ok) {
+                throw new Error(result.error || 'Unable to load artwork.');
+            }
+            currentArtwork = result;
+            document.title = `${result.title} - IceCream`;
+            document.getElementById('artwork-title').textContent = result.title;
+            document.getElementById('artwork-description').textContent =
+                result.description || 'No description provided.';
+            document.getElementById('artwork-status').textContent =
+                `${result.art_id} · ${result.status} · ${result.view_count} views`;
+            document.getElementById('comment-heading').textContent =
+                `Comments (${result.comment_count})`;
+            document.getElementById('artist-name').textContent = result.artist_nickname;
+            document.getElementById('artist-id').textContent = `User ID: ${result.user_id}`;
+            renderImages(result);
+            renderTags(result.tags);
+            renderLikeState();
+            likeButton.disabled = false;
+        } catch (error) {
+            showArtworkError(error.message);
+        }
+    }
+
+    likeButton.addEventListener('click', async () => {
+        const user = getCurrentUser();
+        if (!user?.user_id) {
+            window.location.href = 'login.html';
+            return;
+        }
+        const liked = localStorage.getItem(likeStorageKey()) !== 'true';
+        likeButton.disabled = true;
+        try {
+            const response = await fetch('/api/artworks/like', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    art_id: currentArtwork.art_id,
+                    user_id: user.user_id,
+                    liked
+                })
+            });
+            const result = await response.json();
+            if (!response.ok) {
+                throw new Error(result.error || 'Unable to update like.');
+            }
+            currentArtwork.like_count = result.like_count;
+            localStorage.setItem(likeStorageKey(), String(result.liked));
+            renderLikeState();
+        } catch (error) {
+            window.alert(error.message);
+        } finally {
+            likeButton.disabled = false;
+        }
+    });
+
+    addTagButton.addEventListener('click', async () => {
+        const user = getCurrentUser();
+        const tag = window.prompt('Enter a new tag (maximum 30 characters):');
+        if (!tag) return;
+        try {
+            const response = await fetch('/api/artworks/tags', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    art_id: currentArtwork.art_id,
+                    user_id: user.user_id,
+                    tag
+                })
+            });
+            const result = await response.json();
+            if (!response.ok) {
+                throw new Error(result.error || 'Unable to add tag.');
+            }
+            currentArtwork.tags = result.tags;
+            renderTags(result.tags);
+        } catch (error) {
+            window.alert(error.message);
+        }
+    });
+
+    loadArtwork();
+</script>
+<script src="search-navigation.js"></script>
+<script src="auth-navigation.js"></script>
 </body>
 </html>

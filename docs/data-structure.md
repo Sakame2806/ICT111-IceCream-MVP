@@ -21,10 +21,18 @@ Example entities: Users, Reports, Bookings, Items, Requests, Tasks, Products, Ap
 | Users    | Password     | Text          | Yes       | *******                           | No              | No                      |
 | Artworks | Art_id       | Text/ID       | Yes       | A001                              | Unique value    | Yes                     |    
 | Artworks | User_id      | Text/ID       | Yes       | U001                              | Unique Value    | Yes                     |
-| Artworks | File_Address | Text          | Yes       | /app/static/arts                  | Unique Value    | No                      |
-| Artworks | Tags         | Tag/List      | Yes       | [],[]                             | Unique Value    | Yes                     |
-| Artworks | Comments     | Comments/List | No        | /app/static/arts                  | Unique Value    | No                      |
-| Artworks | Status       | Text          | Yes       | Underchecking/Published/Withdrawn | Unique Value    | Yes                     |
+| Artworks | Title        | Text          | Yes       | Sunset Study                      | 1–100 characters | Yes                    |
+| Artworks | Description  | Text          | No        | Digital color study               | Up to 2,000 characters | No               |
+| Artworks | Image_URLs   | JSON/List     | Yes       | `["/uploads/a006-1.png"]`         | 1–5 valid image paths | No                  |
+| Artworks | Tags         | Tag/List      | Yes       | `digital\|sunset`                 | 1–10 tags       | Yes                     |
+| Artworks | View_Count   | Integer       | Yes       | 0                                 | Zero or higher  | No                      |
+| Artworks | Like_Count   | Integer       | Yes       | 0                                 | Zero or higher  | No                      |
+| Artworks | Comment_Count | Integer      | Yes       | 0                                 | Zero or higher  | No                      |
+| Artworks | Sanity_Level | Integer       | Yes       | 0                                 | 0, 18, or 19    | Yes                     |
+| Artworks | Status       | Text          | Yes       | Underchecking/Published/Withdrawn | Allowed status value | Yes                |
+| Artworks | Created_At   | DateTime      | Yes       | 2026-07-26T09:00:00+00:00         | UTC timestamp   | No                      |
+| Artworks | Updated_At   | DateTime      | Yes       | 2026-07-26T09:00:00+00:00         | UTC timestamp   | No                      |
+| Artworks | Deleted_At   | DateTime      | No        |                                   | UTC timestamp when deleted | No              |
 | Comments | Comments_id  | Text/ID       | Yes       | C001                              | Unique Value    | Yes                     |
 | Comments | Art_id       | Text/ID       | Yes       | A001                              | Unique Value    | Yes                     |
 | Comments | User_id      | Text/ID       | Yes       | U001                              | Unique Value    | Yes                     |

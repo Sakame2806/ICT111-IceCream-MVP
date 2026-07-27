@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="IceCream is a focused creative community prototype for campus digital artists to publish, discover, and discuss artwork.">
+  <title>IceCream — Make art visible</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="IceCream landing page">
+      <span class="brand-mark">I</span>
+      <span>IceCream</span>
+    </a>
+    <nav aria-label="Landing page navigation">
+      <a href="#how-to-use">How to use</a>
+      <a href="#problem">Why IceCream</a>
+      <a href="#features">Features</a>
+      <a href="#proof">Validation</a>
+      <a href="#privacy">Privacy</a>
+    </nav>
+    <a class="nav-cta" href="/homepage.html">Try prototype</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Built with campus artists, for campus artists</p>
+        <h1>Your art deserves more than a <em>fast-moving feed.</em></h1>
+        <p class="hero-summary">IceCream gives digital artists and hobbyists a focused place to publish visual work, organize it with tags, and be discovered by people who care about the craft.</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="/homepage.html">Explore the gallery <span>→</span></a>
+          <a class="secondary-button" href="/Sign-Up.html">Create an account</a>
+        </div>
+        <p class="hero-note">Working classroom prototype · No real name or student ID required</p>
+        <div class="hero-proof" aria-label="Customer discovery evidence">
+          <div><strong>6 in 10</strong><span>said artwork gets buried in active chats</span></div>
+          <div><strong>8 in 10</strong><span>wanted categories and tags for discovery</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Preview of artwork shared on IceCream">
+        <div class="flavor-orb orb-one"></div>
+        <div class="flavor-orb orb-two"></div>
+        <article class="art-preview main-preview">
+          <div class="preview-image" id="hero-art-image">
+            <span class="image-fallback">ICE<br>CREAM</span>
+          </div>
+          <div class="preview-meta">
+            <div>
+              <small>Fresh from the community</small>
+              <strong id="hero-art-title">Original artwork</strong>
+            </div>
+            <span id="hero-like-count">♡ 0</span>
+          </div>
+        </article>
+        <article class="mini-card search-card">
+          <span class="mini-icon">⌕</span>
+          <div><small>Discover by</small><strong>title + tags</strong></div>
+        </article>
+        <article class="mini-card pages-card">
+          <span class="mini-icon">▤</span>
+          <div><small>Built for</small><strong>multi-image work</strong></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="audience-strip" aria-label="Target users">
+      <p>Designed for</p>
+      <span>Student illustrators</span>
+      <span>Comic artists</span>
+      <span>Digital hobbyists</span>
+      <span>Art-club communities</span>
+    </section>
+
+    <section class="how-to-section" id="how-to-use">
+      <div class="section-heading">
+        <p class="kicker">How to use the prototype</p>
+        <h2>Start the local server, then open the gallery.</h2>
+        <p>IceCream stores and reads prototype data through its Python server. Complete these two steps before using the main page.</p>
+      </div>
+      <ol class="setup-steps">
+        <li>
+          <span class="step-number">1</span>
+          <div>
+            <h3>Run the server</h3>
+            <p>Open a terminal in the project folder and run:</p>
+            <code>python prototype/server.py</code>
+            <small>Keep this terminal open while you use IceCream.</small>
+          </div>
+        </li>
+        <li>
+          <span class="step-number">2</span>
+          <div>
+            <h3>Visit the main page</h3>
+            <p>After the server starts, open this address in your browser:</p>
+            <a class="local-address" href="http://127.0.0.1:8000/homepage.html">http://127.0.0.1:8000/homepage.html <span>→</span></a>
+            <small>Use this server address instead of opening the HTML file directly.</small>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="story-section" id="problem">
+      <div class="section-heading">
+        <p class="kicker">The problem → the shift</p>
+        <h2>From disappearing posts to a creative home.</h2>
+      </div>
+      <div class="problem-solution">
+        <article class="story-card problem-card">
+          <span class="card-number">01</span>
+          <p class="card-label">Today</p>
+          <h3>Good work vanishes too quickly.</h3>
+          <p>In chat groups and general social feeds, artwork is quickly pushed away by new messages. Discovery depends on timing, and feedback often stops at emojis or short reactions.</p>
+          <div class="feed-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        </article>
+        <article class="story-card solution-card">
+          <span class="card-number">02</span>
+          <p class="card-label">With IceCream</p>
+          <h3>Work stays organized and discoverable.</h3>
+          <p>Artists publish to a dedicated gallery, add useful tags, present multi-image projects in order, and build a profile that keeps their work together.</p>
+          <div class="tag-cloud" aria-label="Example artwork tags"><span>#touhou</span><span>#digital</span><span>#character</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="feature-section" id="features">
+      <div class="section-heading split-heading">
+        <div>
+          <p class="kicker">Working prototype features</p>
+          <h2>A focused flow from upload to discovery.</h2>
+        </div>
+        <p>Every feature below is available in the current local prototype—not a future promise.</p>
+      </div>
+      <div class="feature-grid">
+        <article>
+          <span class="feature-icon mint">↑</span>
+          <h3>Publish visual work</h3>
+          <p>Upload up to five JPEG, PNG, or GIF images with a title, caption, tags, and content level.</p>
+          <a href="/Upload.html">Open upload →</a>
+        </article>
+        <article>
+          <span class="feature-icon berry">⌕</span>
+          <h3>Search what matters</h3>
+          <p>Find published work through partial title matching, tag matching, or both at once.</p>
+          <a href="/Search.html">Try search →</a>
+        </article>
+        <article>
+          <span class="feature-icon vanilla">▤</span>
+          <h3>Show every page</h3>
+          <p>Present multi-image artwork from top to bottom, preserving the artist’s intended order.</p>
+          <a href="/homepage.html">Browse work →</a>
+        </article>
+        <article>
+          <span class="feature-icon sky">♡</span>
+          <h3>Build visible interest</h3>
+          <p>Like artwork, explore its tags, and view every upload together on the creator’s profile.</p>
+          <a href="/login.html">Sign in →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="proof-section" id="proof">
+      <div class="proof-copy">
+        <p class="kicker">MVP validation · 20 participants</p>
+        <h2>The idea is useful. The next job is making it effortless.</h2>
+        <p>Testing shows strong value and task completion, while a high confusion rate tells us exactly where to focus: clearer navigation and better first-time guidance.</p>
+        <a href="#final-cta">Join the next test round <span>↓</span></a>
+      </div>
+      <div class="metrics-grid">
+        <article><strong>85%</strong><span>task completion</span><small>Target: ≥80%</small></article>
+        <article><strong>4.40<small>/5</small></strong><span>usefulness</span><small>Strong perceived value</small></article>
+        <article><strong>80%</strong><span>would use again</span><small>Return-interest signal</small></article>
+        <article class="attention"><strong>65%</strong><span>reported confusion</span><small>Priority for revision</small></article>
+      </div>
+    </section>
+
+    <section class="privacy-section" id="privacy">
+      <div class="privacy-mark">✓</div>
+      <div>
+        <p class="kicker">Responsible by design</p>
+        <h2>Share your work, not unnecessary personal data.</h2>
+      </div>
+      <p>IceCream uses aliases instead of real names or student IDs. Passwords are stored as salted hashes in the local prototype. Uploaded files are used for educational demonstration and should contain only work you have the right to share.</p>
+    </section>
+
+    <section class="final-cta" id="final-cta">
+      <p class="kicker">Ready for a first scoop?</p>
+      <h2>Give your art a place to be found.</h2>
+      <p>Explore the working prototype, publish a test artwork, and help us make discovery clearer for the next campus artist.</p>
+      <div class="hero-actions centered">
+        <a class="primary-button" href="/homepage.html">Try the prototype <span>→</span></a>
+        <a class="secondary-button" href="/Sign-Up.html">Join the test</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="#top"><span class="brand-mark">I</span><span>IceCream</span></a>
+    <p>A campus digital-art community prototype by Team Icecream · ICT111</p>
+    <div><a href="/homepage.html">Prototype</a><a href="#privacy">Privacy note</a><a href="#proof">Metrics</a></div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
-Art_id,User_id,File_Address,Tags,Comments,Status
-A001,U001,/app/static/arts/sundae-sunset.png,"icecream|sunset|digital","C001|C004",Published
-A002,U002,/app/static/arts/mint-melody.png,"mint|music|pastel","C002",Published
-A003,U003,/app/static/arts/cocoa-city.png,"chocolate|city|night","C003",Underchecking
-A004,U004,/app/static/arts/vanilla-garden.png,"vanilla|garden|watercolor","C005",Withdrawn
-A005,U005,/app/static/arts/berry-dream.png,"berry|dream|abstract","",Published
+Art_id,User_id,Title,Description,Image_URLs,Tags,View_Count,Like_Count,Comment_Count,Sanity_Level,Status,Created_At,Updated_At,Deleted_At
+A006,U007,So hot,123455,"[""/uploads/a006-1-e23c82b1.png""]",cirno|touhou,0,1,0,0,Published,2026-07-26T11:23:56+00:00,2026-07-26T12:26:21+00:00,
+A007,U007,Reimu,213rqwe,"[""/uploads/a007-1-2dc40cdb.png""]",reimu|touhou,0,0,0,0,Published,2026-07-26T11:35:48+00:00,2026-07-26T11:35:48+00:00,
+A008,U007,Koishi 22,1234,"[""/uploads/a008-1-2d62b35c.png"", ""/uploads/a008-2-5899a8f9.png""]",koishi|touhou,0,2,0,0,Published,2026-07-26T11:39:14+00:00,2026-07-26T12:26:10+00:00,
+A009,U006,Satori,Line-art,"[""/uploads/a009-1-3f943080.png""]",satori|touhou,0,0,0,0,Published,2026-07-26T12:25:49+00:00,2026-07-26T12:25:49+00:00,
+A010,U006,Luna,qe,"[""/uploads/a010-1-d1b07595.png""]",luna_child|touhou,0,0,0,0,Published,2026-07-26T12:27:58+00:00,2026-07-26T12:27:58+00:00,
