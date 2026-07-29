@@ -44,6 +44,7 @@ Explain the purpose of each folder.
 | Lab 10 | Prototype Refinement | Updated interactive wireframes to implement UX improvements and risk mitigations | Complete |
 | Lab 11 | Full Prototype Flow Testing | Tested user journey and created prototype-testing-notes.md | Complete |
 | Lab 12 | Digital Go-to-Market Plan & Metrics | Created go-to-market plan, marketing messages, and acquisition metrics | Complete |
+| Lab 13 | Sales Scenario, Demo Script & User Testing | Created sales scenario, demo script, user testing plan, and final improvement list | Complete |
 ## Current Status
  Created the Github Repository and Exchange ideas with each other.(Lab 1)
  We reviewed six possible IT opportunities, scored them using NUF, and selected idea 5 as our semester project idea.(lab 2)
@@ -54,5 +55,6 @@ Explain the purpose of each folder.
  We updated our interactive HTML/CSS prototypes to apply risk mitigations and UX redesigns. (Lab 10)
  We tested the full prototype flow, including the main user journey and dashboard metrics, documenting test cases and results. (Lab 11)
  We developed our digital go-to-market strategy, defining our target early users, outreach channels, marketing messages, and acquisition metrics. (Lab 12)
+ We prepared a sales scenario, demo script, and user testing plan, and prioritized a final improvement list for the MVP pitch. (Lab 13)
 ## Next Step
-Finalize the landing page prototype, implement the mock tracking methods, and prepare for the final MVP pitch presentation.
+Run the final moderated test, complete usability refinements, and rehearse the demo script to prepare for the final Lab 14 MVP pitch presentation.
