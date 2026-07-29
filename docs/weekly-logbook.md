@@ -327,3 +327,59 @@ Condensing the marketing messages to be clear within a 5-second read while still
 
 ### Next Action Before Lab 13
 Finalize the landing page prototype, implement the mock tracking methods, and prepare the final pitch.
+
+## Lab 13: Sales Scenario, Demo Script, and User Testing
+
+### Lab Topic
+
+Sales Scenario, Demo Script, User Testing, and Final Improvement Planning
+
+### Lab Date
+
+2026-07-29
+
+### Members and Contributions
+
+| Member | Role-Aligned Contribution | Repository Evidence |
+| --- | --- | --- |
+| Gwyndolin | Product scenario, documentation coordination, and pitch message | `docs/sales-scenario.md`, `pitch/demo-outline.md` |
+| Kyaw Naing Soe | Technical demo flow, smoke-test evidence, and requirement-gap review | `docs/demo-script.md`, `docs/user-testing-results.md` |
+| RunluQing | Testing-task design, UX findings, and final improvement priorities | `docs/user-testing-plan.md`, `docs/final-improvement-list.md` |
+
+The file paths above record the Lab 13 work allocation. Git commit hashes should be added after the team reviews and commits the files.
+
+### Work Completed
+
+- Prepared a realistic IceCream sales scenario.
+- Created a screen-by-screen demo script with an FR requirement ID for every step.
+- Defined a five-participant moderated testing plan with tasks, metrics, ethical safeguards, and success criteria.
+- Analyzed 20 anonymized historical validation records.
+- Ran a read-only smoke test of eight current prototype pages, homepage data, tag search, and artwork detail.
+- Created `screenshots/demo-flow.png` and `screenshots/user-testing-evidence.png`.
+- Prioritized final work as Critical, Important, Useful, or Future.
+- Updated the project README and added a concise final-pitch demo outline.
+
+### Key Decisions
+
+1. Keep the Lab 14 scope focused on the implemented publish-and-discover pathway.
+2. Treat structured critique, critique-status badges, moderator tools, and other speculative features as non-necessary for the current prototype.
+3. Use the historical dataset as prior evidence and label the 2026-07-29 check as simulated/read-only verification, not new external user testing.
+4. Retain aliases and avoid collecting unnecessary personal data during the final moderated round.
+
+### Problems Encountered
+
+- Historical validation records cover some concepts that are not fully implemented in the current local HTML/CSV build.
+- A true final moderated round still needs to be conducted with target users.
+- Content-level wording, mobile controls, and dashboard values need final usability verification.
+
+### Next Actions Before Lab 14
+
+1. Run the five-participant moderated test.
+2. Complete the identified usability refinements.
+3. Update screenshots and results after fixes.
+4. Rehearse the demo using `docs/demo-script.md`.
+5. Add final Git commit/issue evidence and confirm every demonstrated screen remains traceable.
+
+### Requirement Traceability Notes
+
+Final checking is required for the demonstrated upload, gallery, search, artwork detail, profile, dashboard, validation, privacy, and responsive-interface functions. Non-necessary speculative features are excluded from the Lab 14 implementation plan.
