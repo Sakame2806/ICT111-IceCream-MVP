@@ -57,10 +57,10 @@ For campus digital artists and hobbyists whose work gets buried in busy chat fee
 
 ## 9. Related Requirements
 
-- **FR-01, FR-13, FR-14:** clear, consistent, responsive entry experience.
-- **FR-03, FR-10, FR-11:** account-to-upload workflow, validation, and feedback.
-- **FR-04, FR-05, FR-06:** stored artwork records, gallery, and search/tag discovery.
-- **FR-05, FR-13:** artwork detail and consistent navigation experience.
-- **FR-12:** creator dashboard and engagement summary.
-- **FR-15:** aliases and responsible data handling.
-- **FR-16:** traceability from requirements to screens and demo steps.
+- **FR-01, FR-12, FR-13:** clear, consistent, responsive entry experience.
+- **FR-02, FR-09, FR-10:** account-to-upload workflow, validation, and feedback.
+- **FR-03, FR-04, FR-05:** stored artwork records, gallery, and search/tag discovery.
+- **FR-04, FR-12:** artwork detail and consistent navigation experience.
+- **FR-11:** creator dashboard and engagement summary.
+- **FR-14:** aliases and responsible data handling.
+- **FR-15:** traceability from requirements to screens and demo steps.

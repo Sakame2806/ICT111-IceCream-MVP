@@ -226,7 +226,23 @@
 
             <div class="bg-white rounded-lg p-4 shadow-sm space-y-4">
                 <h3 class="font-bold text-gray-800 flex items-center"><i class="far fa-comment mr-2"></i> <span id="comment-heading">Comments (0)</span></h3>
-                <p class="text-sm text-gray-400">Comment functionality will be added in a future version.</p>
+                <form id="comment-form" class="space-y-3">
+                    <label for="comment-input" class="block text-sm font-medium text-gray-700">Add a comment</label>
+                    <textarea id="comment-input" rows="3" maxlength="1000" required
+                        class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        placeholder="Share your thoughts about this artwork."></textarea>
+                    <div class="flex flex-wrap items-center justify-between gap-3">
+                        <p id="comment-account-note" class="text-xs text-gray-500"></p>
+                        <button id="comment-submit" type="submit"
+                            class="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 text-white text-sm font-medium px-4 py-2 rounded-lg">
+                            Post Comment
+                        </button>
+                    </div>
+                    <p id="comment-message" class="hidden text-sm rounded-lg px-3 py-2" role="alert" aria-live="polite"></p>
+                </form>
+                <div id="comment-list" class="space-y-3 border-t border-gray-100 pt-4">
+                    <p class="text-sm text-gray-400">Loading comments…</p>
+                </div>
             </div>
 
         </div>
@@ -296,6 +312,12 @@
     const likeLabel = document.getElementById('like-label');
     const tagList = document.getElementById('tag-list');
     const addTagButton = document.getElementById('add-tag-button');
+    const commentForm = document.getElementById('comment-form');
+    const commentInput = document.getElementById('comment-input');
+    const commentSubmit = document.getElementById('comment-submit');
+    const commentList = document.getElementById('comment-list');
+    const commentMessage = document.getElementById('comment-message');
+    const commentAccountNote = document.getElementById('comment-account-note');
     let currentArtwork = null;
 
     function getCurrentUser() {
@@ -363,6 +385,79 @@
         likeLabel.textContent = `${liked ? 'Liked' : 'Like'} (${currentArtwork.like_count})`;
     }
 
+    function setCommentMessage(message, type) {
+        commentMessage.textContent = message;
+        commentMessage.className = type === 'success'
+            ? 'text-sm rounded-lg px-3 py-2 bg-green-50 text-green-700'
+            : 'text-sm rounded-lg px-3 py-2 bg-red-50 text-red-700';
+    }
+
+    function configureCommentForm() {
+        const user = getCurrentUser();
+        if (user?.user_id) {
+            commentAccountNote.textContent = `Commenting as ${user.nickname}`;
+            commentInput.disabled = false;
+            commentSubmit.disabled = false;
+        } else {
+            commentAccountNote.innerHTML = 'Please <a class="text-blue-600 hover:underline" href="login.html">sign in</a> to comment.';
+            commentInput.disabled = true;
+            commentSubmit.disabled = true;
+        }
+    }
+
+    function renderComments(comments) {
+        commentList.innerHTML = '';
+        if (!comments.length) {
+            const empty = document.createElement('p');
+            empty.className = 'text-sm text-gray-400';
+            empty.textContent = 'No comments yet. Be the first to comment.';
+            commentList.appendChild(empty);
+            return;
+        }
+        comments.forEach(comment => {
+            const article = document.createElement('article');
+            article.className = 'rounded-lg bg-gray-50 px-4 py-3';
+            const header = document.createElement('div');
+            header.className = 'flex items-center justify-between gap-3';
+            const author = document.createElement('strong');
+            author.className = 'text-sm text-gray-800';
+            author.textContent = comment.nickname;
+            const identifier = document.createElement('span');
+            identifier.className = 'text-xs text-gray-400';
+            identifier.textContent = comment.comment_id;
+            const content = document.createElement('p');
+            content.className = 'mt-2 text-sm text-gray-700 whitespace-pre-wrap break-words';
+            content.textContent = comment.content;
+            header.append(author, identifier);
+            article.append(header, content);
+            commentList.appendChild(article);
+        });
+    }
+
+    async function loadComments() {
+        if (!currentArtwork) return;
+        try {
+            const response = await fetch(
+                `/api/comments?art_id=${encodeURIComponent(currentArtwork.art_id)}`,
+                { cache: 'no-store' }
+            );
+            const result = await response.json();
+            if (!response.ok) {
+                throw new Error(result.error || 'Unable to load comments.');
+            }
+            document.getElementById('comment-heading').textContent =
+                `Comments (${result.comment_count})`;
+            currentArtwork.comment_count = result.comment_count;
+            renderComments(result.comments);
+        } catch (error) {
+            commentList.innerHTML = '';
+            const errorText = document.createElement('p');
+            errorText.className = 'text-sm text-red-600';
+            errorText.textContent = error.message;
+            commentList.appendChild(errorText);
+        }
+    }
+
     async function loadArtwork() {
         const artId = new URLSearchParams(window.location.search).get('art_id');
         if (!artId) {
@@ -390,6 +485,7 @@
             renderTags(result.tags);
             renderLikeState();
             likeButton.disabled = false;
+            await loadComments();
         } catch (error) {
             showArtworkError(error.message);
         }
@@ -452,6 +548,47 @@
         }
     });
 
+    commentForm.addEventListener('submit', async event => {
+        event.preventDefault();
+        const user = getCurrentUser();
+        if (!user?.user_id) {
+            window.location.href = 'login.html';
+            return;
+        }
+        const content = commentInput.value.trim();
+        if (!content) {
+            setCommentMessage('Enter a comment before posting.', 'error');
+            return;
+        }
+        commentSubmit.disabled = true;
+        commentSubmit.textContent = 'Posting...';
+        commentMessage.className = 'hidden';
+        try {
+            const response = await fetch('/api/comments', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    art_id: currentArtwork.art_id,
+                    user_id: user.user_id,
+                    content
+                })
+            });
+            const result = await response.json();
+            if (!response.ok) {
+                throw new Error(result.error || 'Unable to post comment.');
+            }
+            commentInput.value = '';
+            setCommentMessage('Comment posted successfully.', 'success');
+            await loadComments();
+        } catch (error) {
+            setCommentMessage(error.message, 'error');
+        } finally {
+            commentSubmit.disabled = false;
+            commentSubmit.textContent = 'Post Comment';
+        }
+    });
+
+    configureCommentForm();
     loadArtwork();
 </script>
 <script src="search-navigation.js"></script>

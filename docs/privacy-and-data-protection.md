@@ -17,7 +17,7 @@
 | `Comments.User_id` | Identifies the user who wrote a comment | Necessary | Yes | No | Internal | Keep | Display reviewer nickname publicly, not raw user ID. |
 | `Content` | Stores the critique/comment text | Necessary | Possibly | Possibly | Public when published | Keep with moderation | Comments may include personal, harmful, or offensive content, so moderation is required. |
 | `Comments.Status` | Shows whether a comment is Published, Underchecking, or Withdrawn | Necessary | No | No | Public / Admin-only for changes | Keep | Supports comment moderation and user withdrawal. |
-| Artwork title | Helps users understand and search artwork | Necessary | No | No | Public | Keep | Required in upload form according to FR-10. |
+| Artwork title | Helps users understand and search artwork | Necessary | No | No | Public | Keep | Required in upload form according to FR-09. |
 | Artwork description | Lets creators explain context or critique needs | Optional | Possibly | Possibly | Public | Keep with caution | Remind users not to include private contact details or sensitive personal information. |
 | Style/fandom filter selections | Helps users discover relevant artworks | Necessary | Possibly | No | Internal during browsing / Public as artwork tags | Keep | Do not use sensitive identity categories as filter options. |
 | Critique focus | Shows what type of feedback the creator wants | Necessary | No | No | Public | Keep | Examples: Anatomy, Coloring/Lighting, Storytelling, Composition. |

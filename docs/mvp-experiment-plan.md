@@ -16,9 +16,9 @@ List the requirement IDs that will be tested in this experiment.
 
 | Requirement ID | Requirement Summary                       | Related Screen/Feature | Tested in This Experiment? |
 |----------------|-------------------------------------------|------------------------|----------------------------|
-| FR-07          | Detail view and Comments for each Artwork | Detail view            | Yes                        |
-| FR-03          | User input/submission                     | Upload Page            | Yes                        |
-| FR-06          | Search, filter, and Tagging function      | Tagging function       | Yes                        |
+| FR-06          | Detail view and Comments for each Artwork | Detail view            | Yes                        |
+| FR-02          | User input/submission                     | Upload Page            | Yes                        |
+| FR-05          | Search, filter, and Tagging function      | Tagging function       | Yes                        |
 
 ## 4. MVP Experiment Type
 Select one or combine more than one:

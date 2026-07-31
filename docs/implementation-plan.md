@@ -12,18 +12,18 @@ List the features your group will implement in Lab 10.
 
 | Feature | Requirement ID | User Story ID | Screen/Module                                               | Sprint 1 Status |
 |---|---|---|-------------------------------------------------------------|---|
-| Homepage / landing and gallery screen | FR-01, FR-05, FR-13 | US-03, US-07 | `prototype/wireframe/homepage.html`                         | In Progress |
-| Account login screen | FR-15 | US-10 | `prototype/wireframe/login.html`                            | In Progress |
-| Account sign-up screen | FR-15 | US-10 | `prototype/wireframe/Sign-Up.html`                          | Needs Revision |
-| Artwork upload / submission form | FR-03, FR-10, FR-11, FR-15 | US-02, US-05, US-06 | `prototype/wireframe/Upload.html`                           | In Progress |
-| Record list / artwork feed | FR-05, FR-06, FR-08 | US-03, US-04, US-08 | `prototype/wireframe/homepage.html`                         | In Progress |
-| Search and filter | FR-06 | US-03, US-08 | `homepage.html`, `Artwork.html`, shared header search       | In Progress |
-| Artwork detail and comments | FR-02, FR-07, FR-10 | US-01, US-02, US-06 | `prototype/wireframe/Artwork.html`                          | In Progress |
-| Creator profile / portfolio | FR-01, FR-12, FR-15 | US-07, US-09, US-10 | `prototype/wireframe/User-Profile.html`                     | In Progress |
-| Creator dashboard / analytics | FR-12 | US-09 | `prototype/wireframe/User-Dashboard.html.html`                          | In Progress |
-| Status tracking | FR-08, FR-09 | US-04, US-06 | Artwork cards, upload status fields, moderator status rules | Planned |
-| Admin / moderator function | FR-09 | US-06 | Moderator dashboard module still to be finalized            | Planned |
-| Responsible design updates | FR-03, FR-09, FR-10, FR-12, FR-15 | US-01 to US-10 | All forms, dashboard, upload, admin flow                    | Needs Revision |
+| Homepage / landing and gallery screen | FR-01, FR-04, FR-12 | US-03, US-07 | `prototype/wireframe/homepage.html`                         | In Progress |
+| Account login screen | FR-14 | US-10 | `prototype/wireframe/login.html`                            | In Progress |
+| Account sign-up screen | FR-14 | US-10 | `prototype/wireframe/Sign-Up.html`                          | Needs Revision |
+| Artwork upload / submission form | FR-02, FR-09, FR-10, FR-14 | US-02, US-05, US-06 | `prototype/wireframe/Upload.html`                           | In Progress |
+| Record list / artwork feed | FR-04, FR-05, FR-07 | US-03, US-04, US-08 | `prototype/wireframe/homepage.html`                         | In Progress |
+| Search and filter | FR-05 | US-03, US-08 | `homepage.html`, `Artwork.html`, shared header search       | In Progress |
+| Artwork detail and comments | FR-02, FR-06, FR-09 | US-01, US-02, US-06 | `prototype/wireframe/Artwork.html`                          | In Progress |
+| Creator profile / portfolio | FR-01, FR-11, FR-14 | US-07, US-09, US-10 | `prototype/wireframe/User-Profile.html`                     | In Progress |
+| Creator dashboard / analytics | FR-11 | US-09 | `prototype/wireframe/User-Dashboard.html.html`                          | In Progress |
+| Status tracking | FR-07, FR-08 | US-04, US-06 | Artwork cards, upload status fields, moderator status rules | Planned |
+| Admin / moderator function | FR-08 | US-06 | Moderator dashboard module still to be finalized            | Planned |
+| Responsible design updates | FR-02, FR-08, FR-09, FR-11, FR-14 | US-01 to US-10 | All forms, dashboard, upload, admin flow                    | Needs Revision |
 
 ## 3. Implementation Approach
 Explain how your prototype will be built.

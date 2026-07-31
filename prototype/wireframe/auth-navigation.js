@@ -96,8 +96,11 @@
             name.textContent = `${user.nickname} (${user.user_id})`;
             dropdown.append(
                 name,
-                createMenuButton('个人主页', 'profile-button', () => {
+                createMenuButton('Profile', 'profile-button', () => {
                     window.location.href = 'User-Profile.html';
+                }),
+                createMenuButton('Dashboard', 'dashboard-button', () => {
+                    window.location.href = 'User-Dashboard.html';
                 }),
                 createMenuButton('Logout', 'logout-button', () => {
                     sessionStorage.removeItem('icecream_user');

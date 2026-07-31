@@ -2,12 +2,12 @@
 
 | Improvement ID | Problem / Improvement Needed | Priority | Related Requirement | Owner | Deadline | Evidence Source | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| IMP-01 | Run the planned five-participant moderated test and record task time, hints, device, completion, and comments. | **Important** | FR-14, FR-16 | Validation Lead | Before Lab 14 rehearsal | Lab 13 testing plan | Pending |
-| IMP-02 | Replace technical content/sanity-level wording with clear age/content guidance. | **Important** | FR-03, FR-10, FR-15 | Product + UX/UI Leads | Before moderated test | Historical validation confusion | Pending |
-| IMP-03 | Verify dashboard totals against stored artwork records and add simple metric definitions and empty states. | **Useful** | FR-12 | Technical + Validation Leads | Before final presentation | Current dashboard review | Pending |
-| IMP-04 | Increase small touch targets and test landing, upload, search, detail, and logout flows at mobile width. | **Useful** | FR-13, FR-14 | UX/UI Lead | Before final screenshot capture | Historical mobile feedback | Pending |
-| IMP-05 | Add a clear “Back to results/gallery” control on artwork detail and preserve the previous search query where practical. | **Useful** | FR-05, FR-06, FR-13 | UX/UI Lead | If time remains before Lab 14 | Prototype testing notes | Pending |
-| IMP-06 | Refresh the demo screenshots after the final usability changes and rehearse the documented screen sequence. | **Useful** | FR-16 | Whole team | Before final presentation | Lab 13 demo script | Pending |
+| IMP-01 | Run the planned five-participant moderated test and record task time, hints, device, completion, and comments. | **Important** | FR-13, FR-15 | Validation Lead | Before Lab 14 rehearsal | Lab 13 testing plan | Pending |
+| IMP-02 | Replace technical content/sanity-level wording with clear age/content guidance. | **Important** | FR-02, FR-09, FR-14 | Product + UX/UI Leads | Before moderated test | Historical validation confusion | Pending |
+| IMP-03 | Verify dashboard totals against stored artwork records and add simple metric definitions and empty states. | **Useful** | FR-11 | Technical + Validation Leads | Before final presentation | Current dashboard review | Pending |
+| IMP-04 | Increase small touch targets and test landing, upload, search, detail, and logout flows at mobile width. | **Useful** | FR-12, FR-13 | UX/UI Lead | Before final screenshot capture | Historical mobile feedback | Pending |
+| IMP-05 | Add a clear “Back to results/gallery” control on artwork detail and preserve the previous search query where practical. | **Useful** | FR-04, FR-05, FR-12 | UX/UI Lead | If time remains before Lab 14 | Prototype testing notes | Pending |
+| IMP-06 | Refresh the demo screenshots after the final usability changes and rehearse the documented screen sequence. | **Useful** | FR-15 | Whole team | Before final presentation | Lab 13 demo script | Pending |
 
 ## Priority Definition
 

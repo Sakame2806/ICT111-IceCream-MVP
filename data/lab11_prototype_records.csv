@@ -1,16 +1,16 @@
 RecordID,SubmittedDate,LastUpdatedDate,ItemCategory,Location,Priority,CurrentStatus,ResolutionDays,RequirementID,OwnerRole
-R001,2026-07-15,2026-07-16,Electronics,Library,High,Returned,1,FR-03,Admin
-R002,2026-07-15,2026-07-18,Bag,Cafeteria,Medium,Claimed,3,FR-08,Admin
-R003,2026-07-16,2026-07-16,ID Card,Building 2,High,Pending,0,FR-08,Staff
-R004,2026-07-16,2026-07-20,Book,Classroom A,Low,Closed,4,FR-05,Admin
-R005,2026-07-17,2026-07-19,Electronics,Lobby,High,Pending,2,FR-06,Admin
-R006,2026-07-17,2026-07-20,Wallet,Cafeteria,High,Claimed,3,FR-09,Staff
-R007,2026-07-18,2026-07-20,Bottle,Gym,Low,Returned,2,FR-05,Admin
-R008,2026-07-18,2026-07-19,Keys,Parking Area,Medium,Pending,1,FR-08,Staff
-R009,2026-07-19,2026-07-21,Electronics,Library,High,Claimed,2,FR-06,Admin
-R010,2026-07-19,2026-07-22,Uniform,Building 5,Low,Pending,3,FR-12,Admin
-R011,2026-07-20,2026-07-23,Book,Library,Low,Closed,3,FR-05,Staff
-R012,2026-07-20,2026-07-24,Bag,Bus Stop,Medium,Pending,4,FR-08,Admin
-R013,2026-07-21,2026-07-22,ID Card,Building 1,High,Returned,1,FR-03,Staff
-R014,2026-07-21,2026-07-24,Electronics,Cafeteria,High,Pending,3,FR-06,Admin
-R015,2026-07-22,2026-07-24,Bottle,Classroom B,Low,Claimed,2,FR-05,Admin
+R001,2026-07-15,2026-07-16,Electronics,Library,High,Returned,1,FR-02,Admin
+R002,2026-07-15,2026-07-18,Bag,Cafeteria,Medium,Claimed,3,FR-07,Admin
+R003,2026-07-16,2026-07-16,ID Card,Building 2,High,Pending,0,FR-07,Staff
+R004,2026-07-16,2026-07-20,Book,Classroom A,Low,Closed,4,FR-04,Admin
+R005,2026-07-17,2026-07-19,Electronics,Lobby,High,Pending,2,FR-05,Admin
+R006,2026-07-17,2026-07-20,Wallet,Cafeteria,High,Claimed,3,FR-08,Staff
+R007,2026-07-18,2026-07-20,Bottle,Gym,Low,Returned,2,FR-04,Admin
+R008,2026-07-18,2026-07-19,Keys,Parking Area,Medium,Pending,1,FR-07,Staff
+R009,2026-07-19,2026-07-21,Electronics,Library,High,Claimed,2,FR-05,Admin
+R010,2026-07-19,2026-07-22,Uniform,Building 5,Low,Pending,3,FR-11,Admin
+R011,2026-07-20,2026-07-23,Book,Library,Low,Closed,3,FR-04,Staff
+R012,2026-07-20,2026-07-24,Bag,Bus Stop,Medium,Pending,4,FR-07,Admin
+R013,2026-07-21,2026-07-22,ID Card,Building 1,High,Returned,1,FR-02,Staff
+R014,2026-07-21,2026-07-24,Electronics,Cafeteria,High,Pending,3,FR-05,Admin
+R015,2026-07-22,2026-07-24,Bottle,Classroom B,Low,Claimed,2,FR-04,Admin

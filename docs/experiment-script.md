@@ -12,11 +12,11 @@ You are a campus artists and Hobbyist who wants to discover artwork that matches
 ## 3. Tasks for Tester
 | Task No. | Task Instruction | Related Requirement | Expected Result |
 |---|---|---|---|
-| T1 | Open the homepage and describe what IceCream is for and who it is designed for. | FR-01, FR-13 | User understands that IceCream is a platform for discovering and sharing artwork within a creative community. |
-| T2 | Browse the gallery and look for artwork that matches a style or fandom that interests you. | FR-05, FR-06 | User can navigate the gallery and identify relevant artworks based on visible categories or tags. |
-| T3 | Use the search or filter options to narrow the results to a specific style, fandom, or critique status. | FR-06 | User successfully uses the discovery tools and finds artwork that matches their interests. |
-| T4 | Open one artwork detail page and explain what information is shown. | FR-07 | User can understand the artwork details, tags, and context presented on the page. |
-| T5 | Identify whether the selected artwork is seeking a specific type of critique or feedback. | FR-08 | User notices the critique status or request badge and understands its purpose. |
+| T1 | Open the homepage and describe what IceCream is for and who it is designed for. | FR-01, FR-12 | User understands that IceCream is a platform for discovering and sharing artwork within a creative community. |
+| T2 | Browse the gallery and look for artwork that matches a style or fandom that interests you. | FR-04, FR-05 | User can navigate the gallery and identify relevant artworks based on visible categories or tags. |
+| T3 | Use the search or filter options to narrow the results to a specific style, fandom, or critique status. | FR-05 | User successfully uses the discovery tools and finds artwork that matches their interests. |
+| T4 | Open one artwork detail page and explain what information is shown. | FR-06 | User can understand the artwork details, tags, and context presented on the page. |
+| T5 | Identify whether the selected artwork is seeking a specific type of critique or feedback. | FR-07 | User notices the critique status or request badge and understands its purpose. |
 
 ## 4. Observation Notes
 Record where the tester hesitates, clicks the wrong place, asks questions, or gives useful feedback. Pay attention to whether they understand the gallery layout, recognize the style and fandom tags, and can quickly find artwork that feels relevant to their interests. Note any confusion around filters, labels, or the meaning of critique status indicators.

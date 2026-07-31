@@ -18,12 +18,12 @@ The planned moderated round uses aliases only and does not collect student IDs, 
 
 | Task ID | User Task | Related Requirement | Success Criteria | Observation Focus |
 | --- | --- | --- | --- | --- |
-| T01 | Start at the landing page and explain what IceCream is for. | FR-01, FR-13 | User correctly identifies the target user, problem, and primary action within 30 seconds. | Value-message clarity and first-time guidance. |
-| T02 | Create an alias account, log in, and locate the profile/logout menu. | FR-10, FR-15 | Account and login complete without assistance; user can find logout. | Field labels, validation, session feedback. |
-| T03 | Upload a two-image artwork with a title and at least one tag. | FR-03, FR-04, FR-10, FR-11 | Upload succeeds, success feedback appears, and images remain in selected order. | File guidance, tag entry, content-level wording, confirmation. |
-| T04 | Find an artwork using a partial title, then using a tag. | FR-05, FR-06 | User finds a relevant record through both methods within 60 seconds. | Search-mode clarity and zero-result feedback. |
-| T05 | Open artwork detail, inspect all pages, and like the work. | FR-05, FR-13 | User understands image order, creator, tags, and like action. | Image order, like feedback, and navigation back to results. |
-| T06 | Open the creator profile and dashboard. | FR-05, FR-12 | User finds uploaded work and correctly explains at least one metric. | Metric labels, empty states, ownership clarity. |
+| T01 | Start at the landing page and explain what IceCream is for. | FR-01, FR-12 | User correctly identifies the target user, problem, and primary action within 30 seconds. | Value-message clarity and first-time guidance. |
+| T02 | Create an alias account, log in, and locate the profile/logout menu. | FR-09, FR-14 | Account and login complete without assistance; user can find logout. | Field labels, validation, session feedback. |
+| T03 | Upload a two-image artwork with a title and at least one tag. | FR-02, FR-03, FR-09, FR-10 | Upload succeeds, success feedback appears, and images remain in selected order. | File guidance, tag entry, content-level wording, confirmation. |
+| T04 | Find an artwork using a partial title, then using a tag. | FR-04, FR-05 | User finds a relevant record through both methods within 60 seconds. | Search-mode clarity and zero-result feedback. |
+| T05 | Open artwork detail, inspect all pages, and like the work. | FR-04, FR-12 | User understands image order, creator, tags, and like action. | Image order, like feedback, and navigation back to results. |
+| T06 | Open the creator profile and dashboard. | FR-04, FR-11 | User finds uploaded work and correctly explains at least one metric. | Metric labels, empty states, ownership clarity. |
 
 ## 4. Metrics
 

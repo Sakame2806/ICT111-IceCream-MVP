@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixiv 数据分析仪表盘</title>
+    <title>IceCream Analytics Dashboard</title>
     <style>
         :root {
             --bg-color: #f4f5f7;
@@ -29,7 +29,7 @@
             padding-bottom: 60px;
         }
 
-        /* --- 顶部导航栏 --- */
+        /* --- Top navigation --- */
         header {
             background-color: #ffffff;
             height: 60px;
@@ -125,7 +125,7 @@
             display: inline-block;
         }
 
-        /* --- 主体内容布局 --- */
+        /* --- Main content layout --- */
         main {
             max-width: 1200px;
             margin: 0 auto;
@@ -138,7 +138,7 @@
             margin-bottom: 20px;
         }
 
-        /* --- 导航标签页 --- */
+        /* --- Navigation tabs --- */
         .tabs {
             display: flex;
             gap: 8px;
@@ -173,7 +173,7 @@
             font-weight: bold;
         }
 
-        /* --- 通用卡片样式 --- */
+        /* --- Shared card styles --- */
         .card {
             background-color: var(--card-bg);
             border-radius: var(--border-radius-lg);
@@ -209,7 +209,7 @@
             text-decoration: none;
         }
 
-        /* --- 近期投稿作品 (全宽卡片) --- */
+        /* --- Recent submissions (full-width card) --- */
         .empty-state {
             display: flex;
             flex-direction: column;
@@ -239,7 +239,67 @@
             background-color: #e2e8f0;
         }
 
-        /* --- 三栏网格布局 --- */
+        .recent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+            gap: 16px;
+        }
+
+        .artwork-card {
+            overflow: hidden;
+            border: 1px solid #e9eef2;
+            border-radius: 12px;
+            color: inherit;
+            background: #fff;
+            text-decoration: none;
+        }
+
+        .artwork-card img {
+            width: 100%;
+            height: 150px;
+            display: block;
+            object-fit: cover;
+            background: #eef2f6;
+        }
+
+        .artwork-card-info {
+            padding: 12px;
+        }
+
+        .artwork-card-title {
+            overflow: hidden;
+            font-size: 14px;
+            font-weight: 700;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .artwork-card-meta {
+            margin-top: 6px;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .summary-panel {
+            min-height: 206px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .summary-name {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .summary-muted {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* --- Three-column grid layout --- */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -250,9 +310,13 @@
             .grid-container {
                 grid-template-columns: 1fr;
             }
+            .search-bar, .btn-premium { display: none; }
+            header { padding: 0 14px; }
+            main { padding: 24px 14px; }
+            .tabs { overflow-x: auto; }
         }
 
-        /* 栏目一：总反馈数 */
+        /* Column one: engagement totals */
         .metrics-list {
             display: flex;
             flex-direction: column;
@@ -291,9 +355,9 @@
             font-weight: 500;
         }
 
-        /* 栏目二：今日出题 */
+        /* Top artwork */
         .topic-banner {
-            background: linear-gradient(135deg, #ffe082, #fff9c4);
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
             border-radius: var(--border-radius-sm);
             height: 160px;
             display: flex;
@@ -315,7 +379,7 @@
 
         .topic-tag {
             font-size: 12px;
-            color: #795548;
+            color: #2563eb;
             margin-bottom: 12px;
         }
 
@@ -331,7 +395,7 @@
             margin-bottom: 16px;
         }
 
-        /* 栏目三：正在举办的比赛 */
+        /* Account summary */
         .contest-card {
             border: 1px solid #e9ebe8;
             border-radius: var(--border-radius-sm);
@@ -361,7 +425,7 @@
             line-height: 1.4;
         }
 
-        /* 返回顶部浮动按钮 */
+        /* Floating back-to-top button */
         .btn-gotop {
             position: fixed;
             bottom: 30px;
@@ -382,7 +446,7 @@
 </head>
 <body>
 
-    <!-- 顶部导航栏 -->
+    <!-- Top navigation -->
     <header>
         <div class="header-left">
             <a href="homepage.html" class="logo">IceCream</a>
@@ -391,7 +455,7 @@
                 <div class="search-dropdown">Illustrations / Manga ▾</div>
             </div>
         </div>
-        <div class="header-right">ß
+        <div class="header-right">
             <a href="#" class="btn-premium">Join IceCream Premium</a>
             <button class="btn-submit" type="button" onclick="location.href='Upload.html'">Submit ▾</button>
             <div class="icon-group">
@@ -400,106 +464,216 @@
                 <span class="avatar">
                     <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=150&amp;q=80" alt="Artist Avatar" class="avatar">
                 </span>
-                <span>㗊</span>
+                <span>☰</span>
             </div>
         </div>
     </header>
 
-    <!-- 主体区域 -->
+    <!-- Main content -->
     <main>
-        <h1 class="page-title">数据分析</h1>
+        <h1 class="page-title">Data Analytics</h1>
 
-        <!-- 标签导航栏 -->
+        <!-- Dashboard tabs -->
         <div class="tabs">
-            <a class="tab active">首页</a>
-            <a class="tab">作品</a>
-            <a class="tab">反馈</a>
-            <a class="tab">流量分析 <span class="badge-p">P</span></a>
-            <a class="tab">排行榜数据报告 <span class="badge-p">P</span></a>
+            <a class="tab active">Overview</a>
+            <a class="tab" href="User-Profile.html">My Artworks</a>
+            <a class="tab" href="User-Profile.html">Profile</a>
         </div>
 
-        <!-- 近期投稿的作品 (全宽卡片) -->
+        <!-- Recent submissions (full-width card) -->
         <section class="card">
             <div class="card-header">
-                <div class="card-title">近期投稿的作品 <span class="icon-info">ⓘ</span></div>
-                <a href="#" class="link-more">查看全部</a>
+                <div class="card-title">Recent Submissions <span class="icon-info">ⓘ</span></div>
+                <a href="User-Profile.html" class="link-more">View All</a>
             </div>
-            <div class="empty-state">
+            <div id="recent-artworks" class="empty-state">
                 <div class="empty-icon">🖼️</div>
-                <p>尝试投稿您的作品吧</p>
-                <button class="btn-action">投稿作品</button>
+                <p>Loading your artworks…</p>
             </div>
         </section>
 
-        <!-- 三栏下方网格 -->
+        <!-- Lower three-column grid -->
         <div class="grid-container">
             
-            <!-- 栏目一：总反馈数 -->
+            <!-- Column one: engagement totals -->
             <section class="card">
                 <div class="card-header">
-                    <div class="card-title">总反馈数 <span class="icon-info">ⓘ</span></div>
+                    <div class="card-title">Engagement Summary <span class="icon-info">ⓘ</span></div>
                 </div>
                 <div class="metrics-list">
                     <div class="metric-item">
-                        <div class="metric-label">👁️ 浏览量</div>
-                        <div class="metric-value">0</div>
+                        <div class="metric-label">👁️ Views</div>
+                        <div id="total-views" class="metric-value">0</div>
                     </div>
                     <div class="metric-item">
-                        <div class="metric-label">👍 赞！</div>
-                        <div class="metric-value">0</div>
+                        <div class="metric-label">👍 Likes</div>
+                        <div id="total-likes" class="metric-value">0</div>
                     </div>
                     <div class="metric-item">
-                        <div class="metric-label">❤️ 收藏</div>
-                        <div class="metric-value">0</div>
-                    </div>
-                    <div class="metric-item">
-                        <div class="metric-label">💬 评论</div>
-                        <div class="metric-value">0</div>
+                        <div class="metric-label">💬 Comments</div>
+                        <div id="total-comments" class="metric-value">0</div>
                     </div>
                 </div>
-                <button class="btn-full-width">查看详情 <span style="color:var(--accent-orange)">🍊</span></button>
+                <button class="btn-full-width" type="button" onclick="location.href='User-Profile.html'">View My Artworks</button>
             </section>
 
-            <!-- 栏目二：今日出题 -->
+            <!-- Column two: top artwork -->
             <section class="card">
                 <div class="card-header">
-                    <div class="card-title">pixiv今日出题 <span class="icon-info">ⓘ</span></div>
+                    <div class="card-title">Top Artwork <span class="icon-info">ⓘ</span></div>
                 </div>
-                <div class="topic-banner">
-                    <div class="topic-title">向日葵</div>
-                    <div class="topic-tag">#ひまわり</div>
-                    <div class="topic-subtext">马上动笔画画看吧</div>
+                <div id="top-artwork" class="topic-banner">
+                    <div class="topic-title">—</div>
+                    <div class="topic-subtext">Your most-liked artwork will appear here.</div>
                 </div>
-                <p class="topic-hint">完成作品后就加上标签投稿吧。</p>
-                <button class="btn-full-width" style="background-color: #f0f2f5;">投稿作品</button>
+                <p id="top-artwork-hint" class="topic-hint">No artwork data loaded yet.</p>
+                <button id="top-artwork-button" class="btn-full-width" type="button" disabled>View Artwork</button>
             </section>
 
-            <!-- 栏目三：正在举办的比赛 -->
+            <!-- Column three: account summary -->
             <section class="card">
                 <div class="card-header">
-                    <div class="card-title">正在举办的比赛</div>
+                    <div class="card-title">Account</div>
                 </div>
-                <div class="contest-card">
-                    <div class="contest-img">
-                        <div>
-                            <div style="font-size:12px; opacity:0.8;">pixiv × Comic Avenue 12</div>
-                            <div style="font-size:16px; margin-top:8px;">pixiv's Selected Artist</div>
-                            <div style="font-size:10px; background:rgba(0,0,0,0.3); padding:4px; margin-top:10px; border-radius:4px;">招募中：至 2026年7月31日</div>
-                        </div>
-                    </div>
-                    <div class="contest-info">
-                        <div class="contest-title">pixiv x Comic Avenue 12 "pixiv's Selected Artist"</div>
-                    </div>
+                <div class="summary-panel">
+                    <div id="dashboard-nickname" class="summary-name">—</div>
+                    <div id="dashboard-user-id" class="summary-muted">User ID: —</div>
+                    <div id="total-artworks" class="summary-muted">0 published artworks</div>
+                    <button class="btn-full-width" type="button" onclick="location.href='Upload.html'">Upload New Artwork</button>
                 </div>
             </section>
 
         </div>
     </main>
 
-    <!-- 返回顶部悬浮按钮 -->
+    <!-- Floating back-to-top button -->
     <div class="btn-gotop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</div>
 
 <script src="search-navigation.js"></script>
 <script src="auth-navigation.js"></script>
+<script>
+    function getDashboardUser() {
+        try {
+            return JSON.parse(sessionStorage.getItem('icecream_user'));
+        } catch {
+            return null;
+        }
+    }
+
+    function createArtworkCard(artwork) {
+        const link = document.createElement('a');
+        link.className = 'artwork-card';
+        link.href = `Artwork.html?art_id=${encodeURIComponent(artwork.art_id)}`;
+
+        const image = document.createElement('img');
+        image.src = artwork.image_urls[0] || '';
+        image.alt = artwork.title;
+        image.loading = 'lazy';
+
+        const info = document.createElement('div');
+        info.className = 'artwork-card-info';
+        const title = document.createElement('div');
+        title.className = 'artwork-card-title';
+        title.textContent = artwork.title;
+        const meta = document.createElement('div');
+        meta.className = 'artwork-card-meta';
+        meta.textContent = `👁 ${artwork.view_count} · ♥ ${artwork.like_count} · 💬 ${artwork.comment_count}`;
+        info.append(title, meta);
+        link.append(image, info);
+        return link;
+    }
+
+    function renderDashboard(user, artworks) {
+        document.getElementById('dashboard-nickname').textContent = user.nickname;
+        document.getElementById('dashboard-user-id').textContent = `User ID: ${user.user_id}`;
+        document.getElementById('total-artworks').textContent =
+            `${artworks.length} published artwork${artworks.length === 1 ? '' : 's'}`;
+
+        const totals = artworks.reduce((result, artwork) => {
+            result.views += artwork.view_count;
+            result.likes += artwork.like_count;
+            result.comments += artwork.comment_count;
+            return result;
+        }, { views: 0, likes: 0, comments: 0 });
+        document.getElementById('total-views').textContent = totals.views;
+        document.getElementById('total-likes').textContent = totals.likes;
+        document.getElementById('total-comments').textContent = totals.comments;
+
+        const recentContainer = document.getElementById('recent-artworks');
+        recentContainer.innerHTML = '';
+        if (!artworks.length) {
+            recentContainer.className = 'empty-state';
+            recentContainer.innerHTML = '<div class="empty-icon">🖼️</div><p>Share your first artwork.</p>';
+            const uploadButton = document.createElement('button');
+            uploadButton.className = 'btn-action';
+            uploadButton.type = 'button';
+            uploadButton.textContent = 'Upload Artwork';
+            uploadButton.addEventListener('click', () => {
+                window.location.href = 'Upload.html';
+            });
+            recentContainer.appendChild(uploadButton);
+        } else {
+            recentContainer.className = 'recent-grid';
+            [...artworks]
+                .sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)))
+                .slice(0, 4)
+                .forEach(artwork => recentContainer.appendChild(createArtworkCard(artwork)));
+        }
+
+        const topArtwork = [...artworks].sort(
+            (a, b) => b.like_count - a.like_count || b.view_count - a.view_count
+        )[0];
+        if (topArtwork) {
+            const topPanel = document.getElementById('top-artwork');
+            topPanel.innerHTML = '';
+            const title = document.createElement('div');
+            title.className = 'topic-title';
+            title.textContent = topArtwork.title;
+            const tag = document.createElement('div');
+            tag.className = 'topic-tag';
+            tag.textContent = topArtwork.tags.length ? `#${topArtwork.tags[0]}` : topArtwork.art_id;
+            const summary = document.createElement('div');
+            summary.className = 'topic-subtext';
+            summary.textContent = `${topArtwork.like_count} likes · ${topArtwork.view_count} views`;
+            topPanel.append(title, tag, summary);
+            document.getElementById('top-artwork-hint').textContent =
+                'Ranked by likes, then views.';
+            const topButton = document.getElementById('top-artwork-button');
+            topButton.disabled = false;
+            topButton.addEventListener('click', () => {
+                window.location.href =
+                    `Artwork.html?art_id=${encodeURIComponent(topArtwork.art_id)}`;
+            });
+        }
+    }
+
+    async function loadDashboard() {
+        const user = getDashboardUser();
+        if (!user?.user_id) {
+            window.location.replace('login.html');
+            return;
+        }
+        try {
+            const response = await fetch(
+                `/api/artworks?user_id=${encodeURIComponent(user.user_id)}`,
+                { cache: 'no-store' }
+            );
+            const result = await response.json();
+            if (!response.ok) {
+                throw new Error(result.error || 'Unable to load dashboard data.');
+            }
+            renderDashboard(user, result.artworks);
+        } catch (error) {
+            const recentContainer = document.getElementById('recent-artworks');
+            recentContainer.className = 'empty-state';
+            recentContainer.innerHTML = '';
+            const message = document.createElement('p');
+            message.textContent = error.message;
+            recentContainer.appendChild(message);
+        }
+    }
+
+    loadDashboard();
+</script>
 </body>
 </html>

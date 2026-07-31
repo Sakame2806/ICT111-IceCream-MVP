@@ -79,9 +79,9 @@ Digital visual artists (student illustrators, designers) and art hobbyists in Th
 | Req ID | Requirement | Priority | Related Evidence |
 |---|---|---|---|
 | FR-01 | Dedicated landing page showcasing featured student art and clear CTA to join | Must | 10/10 respondents need a dedicated campus community space |
-| FR-03 | Artwork upload form (with single/multi-page options for comics) and structured critique form | Must | Respondents 1, 2, 3, 5, 10 demand structured feedback (anatomy, coloring) and comic layouts |
-| FR-06 | Style, fandom, and critique focus filters (Anime, Comic, Touhou, VTuber, Needs Anatomy Critique) | Must | Respondents 3, 8 requested search/filtering by fandom/style to prevent fragmentation |
-| FR-10 | Input validations (required upload fields, min word count for critiques) to prevent emoji/sticker-only spam | Must | Respondents 1, 2, 6, 10 highlight the lack of constructive critique and prevalence of empty reactions |
+| FR-02 | Artwork upload form (with single/multi-page options for comics) and structured critique form | Must | Respondents 1, 2, 3, 5, 10 demand structured feedback (anatomy, coloring) and comic layouts |
+| FR-05 | Style, fandom, and critique focus filters (Anime, Comic, Touhou, VTuber, Needs Anatomy Critique) | Must | Respondents 3, 8 requested search/filtering by fandom/style to prevent fragmentation |
+| FR-09 | Input validations (required upload fields, min word count for critiques) to prevent emoji/sticker-only spam | Must | Respondents 1, 2, 6, 10 highlight the lack of constructive critique and prevalence of empty reactions |
 | NFR-01 | Responsive user interface design supporting seamless mobile and desktop web browsing | Must | Student preference for web-based portfolio setup and high-resolution mobile browsing |
 
 ### MVP Feature Scope
@@ -208,7 +208,7 @@ All members contributed to this repository through commits, issues, or pull requ
 4. Reviewed third-party assets used or planned in the prototype, including Tailwind CSS, Font Awesome, Unsplash, Lorem Picsum, Pixiv-inspired references, Firebase, Vue.js, mock datasets, and AI-generated material disclosure.
 5. Created a basic security risk check covering form validation, admin access, public links, exposed records, data editing, file upload, status updates, and sample data handling.
 6. Created a risk register with privacy, ethical, IP, security, legal, and data quality risks, including severity, likelihood, mitigation, owner, and evidence.
-7. Created an updated requirements note because the Lab 09 review showed that FR-03, FR-09, FR-10, FR-12, and FR-15 need clarification before final implementation.
+7. Created an updated requirements note because the Lab 09 review showed that FR-02, FR-08, FR-09, FR-11, and FR-14 need clarification before final implementation.
 
 ### What We Learned
 1. Responsible design is not separate from prototype development; privacy, security, legal, and ethical concerns must be checked before implementation continues.
@@ -280,7 +280,7 @@ IceCream - Dedicated Campus Community for Digital Artists
 | RunluQing | UI/UX testing & loading states feedback | docs/prototype-testing-notes.md | GitHub commit |
 
 ### Requirements Addressed
-FR-01 (Landing Page), FR-03 (Artwork Upload Form), FR-06 (Fandom & Style Filters), FR-10 (Input Validations).
+FR-01 (Landing Page), FR-02 (Artwork Upload Form), FR-05 (Fandom & Style Filters), FR-09 (Input Validations).
 
 ### Metrics Added
 Tested user journey completion rates, identified UX friction points (e.g., loading states, filter bugs), and documented startup success metrics.

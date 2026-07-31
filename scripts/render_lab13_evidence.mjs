@@ -15,12 +15,12 @@ function svgText(text, x, y, size, options = {}) {
 }
 
 const demoCards = [
-  ["Home-Page.png", "Gallery entry", "FR-01 · FR-05"],
-  ["Sign-Up.png", "Alias account", "FR-10 · FR-15"],
-  ["Upload.png", "Multi-image upload", "FR-03 · FR-04 · FR-11"],
-  ["Artwork-view.png", "Artwork detail", "FR-05 · FR-13"],
-  ["User-Profile.png", "Creator profile", "FR-05 · FR-13"],
-  ["User-Dashboard.png", "Creator summary", "FR-12 · FR-16"],
+  ["Home-Page.png", "Gallery entry", "FR-01 · FR-04"],
+  ["Sign-Up.png", "Alias account", "FR-09 · FR-14"],
+  ["Upload.png", "Multi-image upload", "FR-02 · FR-03 · FR-10"],
+  ["Artwork-view.png", "Artwork detail", "FR-04 · FR-12"],
+  ["User-Profile.png", "Creator profile", "FR-04 · FR-12"],
+  ["User-Dashboard.png", "Creator summary", "FR-11 · FR-15"],
 ];
 
 const demoComposite = [];

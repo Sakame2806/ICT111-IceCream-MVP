@@ -44,10 +44,10 @@ The historical dataset represents broader prototype validation and includes conc
 
 | Issue ID | Issue Description | Severity | Related Requirement | Proposed Fix |
 | --- | --- | --- | --- | --- |
-| UI-01 | Content/sanity-level wording caused historical confusion. | Important | FR-03, FR-10 | Replace technical labels with plain language and short explanations. |
-| UI-02 | Mobile controls and subtle indicators caused confusion in historical tests. | Useful | FR-13, FR-14 | Increase touch targets and verify key flows at mobile width. |
-| UI-03 | The final moderated user round has not yet been conducted. | Important | FR-16 | Run the five-participant plan and record task time, hints, and outcomes. |
-| UI-04 | Dashboard values require a final comparison with stored CSV records. | Useful | FR-12 | Verify displayed totals and add metric definitions and empty states. |
+| UI-01 | Content/sanity-level wording caused historical confusion. | Important | FR-02, FR-09 | Replace technical labels with plain language and short explanations. |
+| UI-02 | Mobile controls and subtle indicators caused confusion in historical tests. | Useful | FR-12, FR-13 | Increase touch targets and verify key flows at mobile width. |
+| UI-03 | The final moderated user round has not yet been conducted. | Important | FR-15 | Run the five-participant plan and record task time, hints, and outcomes. |
+| UI-04 | Dashboard values require a final comparison with stored CSV records. | Useful | FR-11 | Verify displayed totals and add metric definitions and empty states. |
 
 ## 5. User Feedback Summary
 

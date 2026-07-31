@@ -28,6 +28,7 @@ WIREFRAME_DIR = REPOSITORY_ROOT / "prototype" / "wireframe"
 LANDING_PAGE_DIR = REPOSITORY_ROOT / "landing-page"
 USERS_FILE = REPOSITORY_ROOT / "data" / "Users_records.csv"
 ARTWORKS_FILE = REPOSITORY_ROOT / "data" / "artworks_records.csv"
+COMMENTS_FILE = REPOSITORY_ROOT / "data" / "comments_records.csv"
 UPLOADS_DIR = WIREFRAME_DIR / "uploads"
 CSV_FIELDS = ("User_id", "Nickname", "Password", "Gender")
 ARTWORK_FIELDS = (
@@ -46,8 +47,10 @@ ARTWORK_FIELDS = (
     "Updated_At",
     "Deleted_At",
 )
+COMMENT_FIELDS = ("Comments_id", "Art_id", "User_id", "Content", "Status")
 USERS_LOCK = Lock()
 ARTWORKS_LOCK = Lock()
+COMMENTS_LOCK = Lock()
 ALLOWED_IMAGE_TYPES = {
     "image/jpeg": (".jpg", b"\xff\xd8\xff"),
     "image/png": (".png", b"\x89PNG\r\n\x1a\n"),
@@ -77,6 +80,15 @@ def next_art_id(rows: list[dict[str, str]]) -> str:
         if match:
             numbers.append(int(match.group(1)))
     return f"A{max(numbers, default=0) + 1:03d}"
+
+
+def next_comment_id(rows: list[dict[str, str]]) -> str:
+    numbers = []
+    for row in rows:
+        match = re.fullmatch(r"C(\d+)", row.get("Comments_id", ""))
+        if match:
+            numbers.append(int(match.group(1)))
+    return f"C{max(numbers, default=0) + 1:03d}"
 
 
 def user_exists(user_id: str) -> bool:
@@ -327,6 +339,7 @@ def get_user_artworks(user_id: str) -> list[dict[str, object]]:
                             url for url in image_urls if isinstance(url, str)
                         ],
                         "tags": [tag for tag in row["Tags"].split("|") if tag],
+                        "view_count": int(row["View_Count"] or 0),
                         "like_count": int(row["Like_Count"] or 0),
                         "comment_count": int(row["Comment_Count"] or 0),
                         "sanity_level": int(row["Sanity_Level"] or 0),
@@ -337,7 +350,9 @@ def get_user_artworks(user_id: str) -> list[dict[str, object]]:
     return artworks
 
 
-def get_artwork(art_id: str) -> dict[str, object] | None:
+def get_artwork(
+    art_id: str, increment_view: bool = False
+) -> dict[str, object] | None:
     if not ARTWORKS_FILE.exists():
         return None
     with ARTWORKS_LOCK:
@@ -345,28 +360,173 @@ def get_artwork(art_id: str) -> dict[str, object] | None:
             reader = csv.DictReader(file)
             if tuple(reader.fieldnames or ()) != ARTWORK_FIELDS:
                 raise RuntimeError("artworks_records.csv has an unexpected header.")
-            for row in reader:
-                if row["Art_id"] != art_id or row["Deleted_At"]:
-                    continue
-                try:
-                    image_urls = json.loads(row["Image_URLs"])
-                except json.JSONDecodeError:
-                    image_urls = []
-                return {
-                    "art_id": row["Art_id"],
-                    "user_id": row["User_id"],
-                    "title": row["Title"],
-                    "description": row["Description"],
-                    "image_urls": image_urls if isinstance(image_urls, list) else [],
-                    "tags": [tag for tag in row["Tags"].split("|") if tag],
-                    "view_count": int(row["View_Count"] or 0),
-                    "like_count": int(row["Like_Count"] or 0),
-                    "comment_count": int(row["Comment_Count"] or 0),
-                    "sanity_level": int(row["Sanity_Level"] or 0),
-                    "status": row["Status"],
-                    "created_at": row["Created_At"],
-                }
+            rows = list(reader)
+
+        row = next(
+            (
+                candidate
+                for candidate in rows
+                if candidate["Art_id"] == art_id and not candidate["Deleted_At"]
+            ),
+            None,
+        )
+        if row is None:
+            return None
+
+        if increment_view:
+            row["View_Count"] = str(int(row["View_Count"] or 0) + 1)
+            row["Updated_At"] = datetime.now(timezone.utc).isoformat(
+                timespec="seconds"
+            )
+            temporary_file = ARTWORKS_FILE.with_name(
+                f".{ARTWORKS_FILE.name}.{secrets.token_hex(4)}.tmp"
+            )
+            try:
+                with temporary_file.open(
+                    "w", encoding="utf-8", newline=""
+                ) as file:
+                    writer = csv.DictWriter(file, fieldnames=ARTWORK_FIELDS)
+                    writer.writeheader()
+                    writer.writerows(rows)
+                temporary_file.replace(ARTWORKS_FILE)
+            finally:
+                temporary_file.unlink(missing_ok=True)
+
+        try:
+            image_urls = json.loads(row["Image_URLs"])
+        except json.JSONDecodeError:
+            image_urls = []
+        return {
+            "art_id": row["Art_id"],
+            "user_id": row["User_id"],
+            "title": row["Title"],
+            "description": row["Description"],
+            "image_urls": image_urls if isinstance(image_urls, list) else [],
+            "tags": [tag for tag in row["Tags"].split("|") if tag],
+            "view_count": int(row["View_Count"] or 0),
+            "like_count": int(row["Like_Count"] or 0),
+            "comment_count": int(row["Comment_Count"] or 0),
+            "sanity_level": int(row["Sanity_Level"] or 0),
+            "status": row["Status"],
+            "created_at": row["Created_At"],
+        }
     return None
+
+
+def get_comments(art_id: str) -> list[dict[str, str]]:
+    if get_artwork(art_id) is None:
+        raise ValueError("Artwork not found.")
+    if not COMMENTS_FILE.exists():
+        return []
+
+    with COMMENTS_LOCK:
+        with COMMENTS_FILE.open("r", encoding="utf-8-sig", newline="") as file:
+            reader = csv.DictReader(file)
+            if tuple(reader.fieldnames or ()) != COMMENT_FIELDS:
+                raise RuntimeError("comments_records.csv has an unexpected header.")
+            rows = [
+                row
+                for row in reader
+                if row["Art_id"] == art_id and row["Status"] == "Published"
+            ]
+
+    return [
+        {
+            "comment_id": row["Comments_id"],
+            "art_id": row["Art_id"],
+            "user_id": row["User_id"],
+            "nickname": get_nickname(row["User_id"]),
+            "content": row["Content"],
+            "status": row["Status"],
+        }
+        for row in rows
+    ]
+
+
+def create_comment(payload: dict[str, object]) -> dict[str, str]:
+    art_id = payload.get("art_id")
+    user_id = payload.get("user_id")
+    content = payload.get("content")
+
+    if not isinstance(user_id, str) or not user_exists(user_id):
+        raise AuthenticationRequiredError("Please sign in before posting a comment.")
+    if not isinstance(art_id, str) or get_artwork(art_id) is None:
+        raise ValueError("Artwork not found.")
+    if not isinstance(content, str):
+        raise ValueError("Comment content is required.")
+    clean_content = content.strip()
+    if not 1 <= len(clean_content) <= 1_000:
+        raise ValueError("Comment must contain between 1 and 1,000 characters.")
+
+    with COMMENTS_LOCK:
+        COMMENTS_FILE.parent.mkdir(parents=True, exist_ok=True)
+        rows: list[dict[str, str]] = []
+        if COMMENTS_FILE.exists():
+            with COMMENTS_FILE.open("r", encoding="utf-8-sig", newline="") as file:
+                reader = csv.DictReader(file)
+                if tuple(reader.fieldnames or ()) != COMMENT_FIELDS:
+                    raise RuntimeError("comments_records.csv has an unexpected header.")
+                rows = list(reader)
+
+        comment_id = next_comment_id(rows)
+        write_header = (
+            not COMMENTS_FILE.exists() or COMMENTS_FILE.stat().st_size == 0
+        )
+        with COMMENTS_FILE.open("a", encoding="utf-8", newline="") as file:
+            writer = csv.DictWriter(file, fieldnames=COMMENT_FIELDS)
+            if write_header:
+                writer.writeheader()
+            writer.writerow(
+                {
+                    "Comments_id": comment_id,
+                    "Art_id": art_id,
+                    "User_id": user_id,
+                    "Content": clean_content,
+                    "Status": "Published",
+                }
+            )
+
+    with ARTWORKS_LOCK:
+        with ARTWORKS_FILE.open("r", encoding="utf-8-sig", newline="") as file:
+            reader = csv.DictReader(file)
+            if tuple(reader.fieldnames or ()) != ARTWORK_FIELDS:
+                raise RuntimeError("artworks_records.csv has an unexpected header.")
+            artwork_rows = list(reader)
+        target = next(
+            (
+                row
+                for row in artwork_rows
+                if row["Art_id"] == art_id and not row["Deleted_At"]
+            ),
+            None,
+        )
+        if target is not None:
+            target["Comment_Count"] = str(int(target["Comment_Count"] or 0) + 1)
+            target["Updated_At"] = datetime.now(timezone.utc).isoformat(
+                timespec="seconds"
+            )
+            temporary_file = ARTWORKS_FILE.with_name(
+                f".{ARTWORKS_FILE.name}.{secrets.token_hex(4)}.tmp"
+            )
+            try:
+                with temporary_file.open(
+                    "w", encoding="utf-8", newline=""
+                ) as file:
+                    writer = csv.DictWriter(file, fieldnames=ARTWORK_FIELDS)
+                    writer.writeheader()
+                    writer.writerows(artwork_rows)
+                temporary_file.replace(ARTWORKS_FILE)
+            finally:
+                temporary_file.unlink(missing_ok=True)
+
+    return {
+        "comment_id": comment_id,
+        "art_id": art_id,
+        "user_id": user_id,
+        "nickname": get_nickname(user_id),
+        "content": clean_content,
+        "status": "Published",
+    }
 
 
 def update_artwork(
@@ -583,6 +743,22 @@ class PrototypeHandler(SimpleHTTPRequestHandler):
 
     def do_GET(self) -> None:
         parsed_url = urlparse(self.path)
+        if parsed_url.path == "/api/comments":
+            try:
+                art_id = parse_qs(parsed_url.query).get("art_id", [""])[0]
+                if not art_id:
+                    raise ValueError("An art_id query parameter is required.")
+                comments = get_comments(art_id)
+                self.send_json(
+                    200, {"comments": comments, "comment_count": len(comments)}
+                )
+            except ValueError as error:
+                self.send_json(400, {"error": str(error)})
+            except RuntimeError as error:
+                self.send_json(500, {"error": str(error)})
+            except OSError:
+                self.send_json(500, {"error": "Unable to read comment records."})
+            return
         if parsed_url.path == "/api/search":
             try:
                 parameters = parse_qs(parsed_url.query)
@@ -627,7 +803,9 @@ class PrototypeHandler(SimpleHTTPRequestHandler):
         artwork_match = re.fullmatch(r"/api/artworks/(A\d+)", parsed_url.path)
         if artwork_match:
             try:
-                artwork = get_artwork(artwork_match.group(1))
+                artwork = get_artwork(
+                    artwork_match.group(1), increment_view=True
+                )
                 if artwork is None:
                     self.send_json(404, {"error": "Artwork not found."})
                 else:
@@ -654,6 +832,7 @@ class PrototypeHandler(SimpleHTTPRequestHandler):
             "/api/artworks",
             "/api/artworks/like",
             "/api/artworks/tags",
+            "/api/comments",
         ):
             self.send_error(404)
             return
@@ -676,6 +855,10 @@ class PrototypeHandler(SimpleHTTPRequestHandler):
                     value,
                 )
                 self.send_json(200, result)
+                return
+            if self.path == "/api/comments":
+                comment = create_comment(payload)
+                self.send_json(201, comment)
                 return
             if self.path == "/api/artworks":
                 art_id = create_artwork(payload)
